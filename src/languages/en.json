@@ -1,0 +1,14 @@
+{
+    "message":{
+        "test": "Dashboard"
+    },
+    "login":{
+        "welcomeMessage": "Welcome back!",
+        "loginSession": "Log in to continue",
+        "usernamePlaceholder": "Enter your username",
+        "passwordPlaceholder": "Enter your password",
+        "loginButton": "Log in",
+        "forgotPasswordCaption": "Forgot your password?",
+        "forgotPasswordLink": "Click here"
+    }
+}

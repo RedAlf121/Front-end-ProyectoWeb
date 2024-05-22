@@ -1,0 +1,14 @@
+{
+    "message":{
+        "test": "Panel"
+    },
+    "login":{
+        "welcomeMessage": "¡Bienvenido!",
+        "loginSession": "Inicia sesión para continuar",
+        "usernamePlaceholder": "Ingrese su usuario",
+        "passwordPlaceholder": "Ingrese su contraseña",
+        "loginButton": "Iniciar sesión",
+        "forgotPasswordCaption": "¿Olvidó su contraseña?",
+        "forgotPasswordLink": "Click aquí"
+    }
+}
