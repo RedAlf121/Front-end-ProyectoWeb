@@ -10,7 +10,7 @@
   const passwordValue = ref<string>('');
 
   function submitUserValues() {
-    const user = UserFactory.buildUser(`admin ${userValue.value}`);
+    const user = UserFactory.buildUser(`accounter ${userValue.value}`);
     const store = userStore();
     store.$patch({userName: user.name, userOptions:user.options});
     route.push({name:'home'});
