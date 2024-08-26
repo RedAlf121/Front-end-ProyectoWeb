@@ -10,5 +10,35 @@
         "loginButton": "Iniciar sesión",
         "forgotPasswordCaption": "¿Olvidó su contraseña?",
         "forgotPasswordLink": "Click aquí"
+    },
+    "nav":{
+        "projectManager":{
+            "client": {
+                "client": "Cliente",
+                "insert": "Insertar @:nav.projectManager.client.client",
+                "manage": "Administrar @:nav.projectManager.client.client"
+            },
+            "contract":{
+                "client": "Contrato",
+                "insert": "Insertar @:nav.projectManager.contract.contract",
+                "manage": "Administrar @:nav.projectManager.contract.contract"
+            },
+            "payterm":"Plazos"
+        },
+        "accounter":{
+            "recieve": {
+                "recieve": "Recibo",
+                "actual": "@:nav.accounter.recieve.recieve actual",
+                "monthly": "@:nav.accounter.recieve.recieve mensual"
+            },
+            "remmuneration": "Remuneración"
+        },
+        "humanResources":{
+            "worker":{
+                "worker": "trabajadores",
+                "add": "Añadir @:nav.humanResources.worker.worker",
+                "manage": "Administrar @:nav.humanResources.worker.worker"
+            }
+        }
     }
 }

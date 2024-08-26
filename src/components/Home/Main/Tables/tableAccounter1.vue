@@ -43,9 +43,6 @@
   </div>
 </template>
 
-<script>
-import Receipt from './Receipt.vue';
-
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import Receipt from './Receipt.vue';

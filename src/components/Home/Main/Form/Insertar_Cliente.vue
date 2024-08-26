@@ -15,14 +15,14 @@
                     <label for="telefono" class="label-margin">Teléfono:</label>
                     <input type="tel" id="telefono" name="telefono" class="entrada-texto">
                 </div>
-                <div class="campo">
+                <div class="campo"> 
                     <label for="email" class="label-margin">Email:</label>
                     <input type="email" id="email" name="email" class="entrada-texto">
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend>Detalles</legend>
+                
                 <div class="campo">
                     <label for="descripcion">Descripción:</label>
                     <textarea id="descripcion" name="descripcion" class="entrada-texto"></textarea>

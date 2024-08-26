@@ -15,11 +15,11 @@
     "jsx": "preserve",
 
     /* Linting */
-    "strict": true,
+    "strict": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue, src/**/*.js"],
+  "include": ["@/**/*.vue","@/**/*.ts","@/**/*.js","**/**/*.vue","**/**/*.ts","**/**/*.js","src/**/*.ts", "src/**/*.tsx", "src/**/*.vue, src/**/*.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

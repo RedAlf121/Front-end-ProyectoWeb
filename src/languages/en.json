@@ -10,5 +10,35 @@
         "loginButton": "Log in",
         "forgotPasswordCaption": "Forgot your password?",
         "forgotPasswordLink": "Click here"
+    },
+    "nav":{
+        "projectManager":{
+            "client": {
+                "client": "Client",
+                "insert": "Insert @:nav.projectManager.client.client",
+                "manage": "Manage @:nav.projectManager.client.client"
+            },
+            "contract":{
+                "client": "Contract",
+                "insert": "Insert @:nav.projectManager.contract.contract",
+                "manage": "Manage @:nav.projectManager.contract.contract"
+            },
+            "payterm":"Payterm"
+        },
+        "accounter":{
+            "recieve": {
+                "recieve": "Recieve",
+                "actual": "@:nav.accounter.recieve.recieve actual",
+                "monthly": "@:nav.accounter.recieve.recieve monthly"
+            },
+            "remmuneration": "Remmuneration"
+        },
+        "humanResources":{
+            "worker":{
+                "worker": "workers",
+                "add": "Add @:nav.humanResources.worker.worker",
+                "manage": "Manage @:nav.humanResources.worker.worker"
+            }
+        }
     }
 }

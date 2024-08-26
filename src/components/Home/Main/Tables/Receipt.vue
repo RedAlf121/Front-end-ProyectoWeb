@@ -6,11 +6,11 @@
         <p><strong>Cliente:</strong> {{ receiptData.client }}</p>
         <p><strong>Contrato:</strong> {{ receiptData.contract }}</p>
         <p><strong>Mes de Factura:</strong> {{ receiptData.invoiceMonth }}</p>
-        <p><strong>Fecha de Pago:</strong> {{ formattedDate }}</p>
+            <p><strong>Fecha de Pago:</strong> {{ formattedDate }}</p>
         <p><strong>Cantidad de Pago:</strong> {{ receiptData.amount }}</p>
         <button class="accept-button" @click="closeModal">Aceptar</button>
       </div>
-    </div>
+      </div>
   </transition>
 </template>
 

@@ -5,23 +5,23 @@ import ProjectManager from "./ProjectManager";
 import User from "./User";
 
 
-interface UserFactoryFunctions{
+export interface UserFactoryFunctions{
     [key: string]: (name: string) => User;
 }
 
 export default class UserFactory{
-    private static _functions: UserFactoryFunctions;
+    public static functions: UserFactoryFunctions;
 
     
     public static buildUser(url: string): User{
-        if(!UserFactory._functions){
+        if(!UserFactory.functions){
             UserFactory._createFunctions();
         }
         //let userJson = UserFactory._getUserJson(url);
         //return UserFactory._functions[userJson.role](userJson.name);
         //testing function
         let divide: string[] = url.split(' ');
-        return UserFactory._functions[divide[0]](divide[1]);
+        return UserFactory.functions[divide[0]](divide[1]);
     }
     
     
@@ -30,7 +30,7 @@ export default class UserFactory{
     // }
 
     private static _createFunctions(){
-        UserFactory._functions = {
+        UserFactory.functions = {
             'admin': (name: string)=>new Admin(name),
             'accounter': (name: string)=>new Accounter(name),
             'humanResources': (name: string)=>new HumanResources(name),
