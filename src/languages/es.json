@@ -40,5 +40,220 @@
                 "manage": "Administrar @:nav.humanResources.worker.worker"
             }
         }
+    },
+    "contractForm": {
+        "legend": "Contrato",
+        "titleLabel": "Título:",
+        "clientLabel": "Cliente:",
+        "managerLabel": "Gestor:",
+        "selectOption": "Seleccionar",
+        "datesLegend": "Fechas",
+        "startDateLabel": "Fecha de inicio:",
+        "endDateLabel": "Fecha fin:",
+        "reconciliationDateLabel": "Fecha conciliación:",
+        "detailsLegend": "Detalles",
+        "workAreaLabel": "Área de trabajo:",
+        "descriptionLabel": "Descripción:",
+        "settingsLegend": "Configuración",
+        "profitMarginLabel": "Margen de ganancia (%):",
+        "currencyLabel": "Moneda:",
+        "insertClientButton": "Inserta nuevo cliente",
+        "submitButton": "Enviar",
+        "resetButton": "Cancelar"
+      },
+      "categoryForm": {
+        "legend": "Categoría",
+        "workerLabel": "Trabajador:",
+        "hoursLabel": "Cantidad de Horas:",
+        "saveButton": "Guardar",
+        "cancelButton": "Cancelar"
+    },
+    "clientForm": {
+        "legend": "Cliente",
+        "nameLabel": "Nombre:",
+        "addressLabel": "Dirección:",
+        "phoneLabel": "Teléfono:",
+        "emailLabel": "Email:",
+        "descriptionLabel": "Descripción:",
+        "saveButton": "Guardar",
+        "cancelButton": "Cancelar"
+    },
+    "deliverableForm": {
+        "legend": "Entregable",
+        "workerLabel": "Trabajador:",
+        "selectOption": "Seleccionar",
+        "hoursLabel": "Cantidad de Horas:",
+        "taskLabel": "Tarea:",
+        "saveButton": "Guardar",
+        "cancelButton": "Cancelar"
+    },
+    "deadlineForm": {
+        "legend": "Nuevo Plazo",
+        "deliveryLabel": "Entrega:",
+        "startDateLabel": "Fecha inicio:",
+        "saveButton": "Guardar",
+        "cancelButton": "Cancelar"
+    },
+    "trainingOfferForm": {
+        "legend": "Oferta Capacitación",
+        "nameLabel": "Nombre:",
+        "startDateLabel": "Fecha inicio:",
+        "endDateLabel": "Fecha fin:",
+        "detailsLegend": "Detalles",
+        "descriptionLabel": "Descripción:",
+        "saveButton": "Guardar",
+        "cancelButton": "Cancelar"
+    },
+    "serviceOfferForm": {
+        "legend": "Oferta Servicio",
+        "productLabel": "Producto:",
+        "durationLabel": "Duración:",
+        "detailsLegend": "Detalles",
+        "descriptionLabel": "Descripción:",
+        "saveButton": "Guardar",
+        "cancelButton": "Cancelar"
+    },
+    "workerForm": {
+        "legend": "Trabajador",
+        "dniLabel": "DNI:",
+        "nameLabel": "Nombre:",
+        "addressLabel": "Dirección:",
+        "phoneLabel": "Teléfono:",
+        "emailLabel": "Email:",
+        "departmentLabel": "Departamento:",
+        "accountNumberLabel": "Número de Cuenta:",
+        "categoryLabel": "Categoría:",
+        "selectOption": "Seleccione",
+        "saveButton": "Guardar",
+        "cancelButton": "Cancelar"
+    },
+
+
+
+
+
+
+
+
+     "receiptForm": {
+        "title": "Recibo de Pago",
+        "clientLabel": "Cliente:",
+        "contractLabel": "Contrato:",
+        "invoiceMonthLabel": "Mes de Factura:",
+        "paymentDateLabel": "Fecha de Pago:",
+        "amountLabel": "Cantidad de Pago:",
+        "acceptButton": "Aceptar"
+    },
+   "remunerationDetails": {
+        "title": "Detalles de Remuneración",
+        "workerLabel": "Trabajador:",
+        "deliverableMonthLabel": "Mes del Entregable:",
+        "deliverableValueLabel": "Valor del Entregable:",
+        "accountNumberLabel": "Número de Cuenta:",
+        "acceptButton": "Aceptar"
+    },
+    "clientList": {
+        "title": "Listado de Clientes",
+        "filterNamePlaceholder": "Filtrar por nombre",
+        "filterAddressPlaceholder": "Filtrar por dirección",
+        "filterEmailPlaceholder": "Filtrar por email",
+        "newClientButton": "Nuevo Cliente",
+        "nameColumn": "Nombre",
+        "addressColumn": "Dirección",
+        "phoneColumn": "Teléfono",
+        "emailColumn": "Email",
+        "actionsColumn": "Acciones"
+    },
+    "contractList": {
+        "title": "Listado de Contratos",
+        "filterTitlePlaceholder": "Filtrar por título",
+        "filterClientPlaceholder": "Filtrar por cliente",
+        "filterManagerPlaceholder": "Filtrar por gestor",
+        "filterOfferPlaceholder": "Filtrar por oferta",
+        "newContractButton": "Nuevo Contrato",
+        "titleColumn": "Título",
+        "clientColumn": "Cliente",
+        "managerColumn": "Gestor",
+        "startDateColumn": "Fecha Inicio",
+        "endDateColumn": "Fecha Fin",
+        "offerColumn": "Oferta",
+        "actionsColumn": "Acciones"
+    },
+    "taskList": {
+        "title": "Listado de Tareas",
+        "filterContractPlaceholder": "Filtrar por contrato",
+        "allOption": "Todos",
+        "contractColumn": "Contrato",
+        "monthColumn": "Mes",
+        "workerColumn": "Trabajador",
+        "tasksColumn": "Tareas",
+        "statusColumn": "Estado",
+        "valuesColumn": "Valores",
+        "actionsColumn": "Acciones"
+    },
+     "deadlineList": {
+        "title": "Listado de Plazos",
+        "filterContractPlaceholder": "Filtrar por contrato",
+        "allOption": "Todos",
+        "contractColumn": "Contrato",
+        "monthColumn": "Mes",
+        "yearColumn": "Año",
+        "statusColumn": "Estado",
+        "valueColumn": "Valor",
+        "actionsColumn": "Acciones"
+    },
+    "workerList": {
+        "title": "Listado de Trabajadores",
+        "idColumn": "Carnet",
+        "nameColumn": "Nombre",
+        "categoryColumn": "Categoría",
+        "detailsColumn": "Detalles"
+    },
+    "invoiceReview": {
+        "title": "Revisar Facturas",
+        "filterClientPlaceholder": "Filtrar por cliente",
+        "filterInvoicePlaceholder": "Filtrar por factura",
+        "filterContractPlaceholder": "Filtrar por contrato",
+        "allOption": "Todos",
+        "pendingOption": "Pendiente",
+        "paidOption": "Pagada",
+        "clientColumn": "Clientes",
+        "contractColumn": "Contratos",
+        "nextMonthColumn": "Próximo Mes del Plazo",
+        "billingMonthColumn": "Mes de Facturación",
+        "statusColumn": "Estado",
+        "valueColumn": "Valor del Plazo",
+        "totalColumn": "Total a Pagar",
+        "actionsColumn": "Acciones"
+    },
+     "remunerationList": {
+        "title": "Remuneraciones",
+        "filterContractPlaceholder": "Filtrar por contrato",
+        "allOption": "Todos",
+        "contractColumn": "Contrato",
+        "invoiceMonthColumn": "Mes de Factura",
+        "remunerationDateColumn": "Fecha de Remuneración",
+        "totalRemuneratedColumn": "Total Remunerado",
+        "actionsColumn": "Acciones"
+    },
+
+
+
+
+
+
+
+    "rrhh": {
+        "insertCategory": "Insertar Categoría",
+        "insertWorker": "Insertar Trabajador",
+        "workers": "Trabajadores"
+     },
+
+      "pm": {
+        "insertClient": "Insertar Cliente",
+        "insertContract": "Insertar Contrato",
+        "contract" : "Contractos",
+        "clients": "Clientes",
+        "deadlines": "Plazos"
     }
 }

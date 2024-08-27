@@ -1,41 +1,41 @@
 <template>
-    <div class="formulario-container">
-        <form action="/submit-form" method="post" class="formulario">
-            <fieldset>
-                <legend>Cliente</legend>
-                <div class="campo">
-                    <label for="nombre" class="label-margin">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" class="entrada-texto">
-                </div>
-                <div class="campo">
-                    <label for="direccion" class="label-margin">Dirección:</label>
-                    <input type="text" id="direccion" name="direccion" class="entrada-texto">
-                </div>
-                <div class="campo">
-                    <label for="telefono" class="label-margin">Teléfono:</label>
-                    <input type="tel" id="telefono" name="telefono" class="entrada-texto">
-                </div>
-                <div class="campo"> 
-                    <label for="email" class="label-margin">Email:</label>
-                    <input type="email" id="email" name="email" class="entrada-texto">
-                </div>
-            </fieldset>
+  <div class="formulario-container">
+      <form action="/submit-form" method="post" class="formulario">
+          <fieldset>
+              <legend>{{$t('clientForm.legend')}}</legend>
+              <div class="campo">
+                  <label for="nombre" class="label-margin">{{$t('clientForm.nameLabel')}}</label>
+                  <input type="text" id="nombre" name="nombre" class="entrada-texto">
+              </div>
+              <div class="campo">
+                  <label for="direccion" class="label-margin">{{$t('clientForm.addressLabel')}}</label>
+                  <input type="text" id="direccion" name="direccion" class="entrada-texto">
+              </div>
+              <div class="campo">
+                  <label for="telefono" class="label-margin">{{$t('clientForm.phoneLabel')}}</label>
+                  <input type="tel" id="telefono" name="telefono" class="entrada-texto">
+              </div>
+              <div class="campo"> 
+                  <label for="email" class="label-margin">{{$t('clientForm.emailLabel')}}</label>
+                  <input type="email" id="email" name="email" class="entrada-texto">
+              </div>
+          </fieldset>
 
-            <fieldset>
-                
-                <div class="campo">
-                    <label for="descripcion">Descripción:</label>
-                    <textarea id="descripcion" name="descripcion" class="entrada-texto"></textarea>
-                </div>
-            </fieldset>
+          <fieldset>
+              <div class="campo">
+                  <label for="descripcion">{{$t('clientForm.descriptionLabel')}}</label>
+                  <textarea id="descripcion" name="descripcion" class="entrada-texto"></textarea>
+              </div>
+          </fieldset>
 
-            <div class="acciones">
-                <input type="submit" value="Guardar" class="boton-enviar">
-                <input type="reset" value="Cancelar" class="boton-cancelar">
-            </div>
-        </form>
-    </div>
+          <div class="acciones">
+              <input type="submit" value="{{$t('clientForm.saveButton')}}" class="boton-enviar">
+              <input type="reset" value="{{$t('clientForm.cancelButton')}}" class="boton-cancelar">
+          </div>
+      </form>
+  </div>
 </template>
+
 
 <style scoped>
 /* Estilo para el contenedor principal */

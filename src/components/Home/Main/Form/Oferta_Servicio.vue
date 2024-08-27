@@ -1,34 +1,34 @@
 <template>
-    <div class="formulario-container">
-        <form action="/submit-form" method="post" class="formulario">
-            <fieldset>
-                <legend>Oferta Servicio</legend>
-                <div class="campo">
-                    <label for="nombre" class="label-margin">Producto:</label>
-                    <input type="text" id="nombre" name="nombre" class="entrada-texto">
-                </div>
-                <div class="campo">
-                    <label for="fecha-inicio" class="label-margin">Duración:</label>
-                   <input type="date" id="fecha-inicio" name="fecha-inicio" class="entrada-texto">
-                </div>
-               
-            </fieldset>
+  <div class="formulario-container">
+      <form action="/submit-form" method="post" class="formulario">
+          <fieldset>
+              <legend>{{$t('serviceOfferForm.legend')}}</legend>
+              <div class="campo">
+                  <label for="nombre" class="label-margin">{{$t('serviceOfferForm.productLabel')}}</label>
+                  <input type="text" id="nombre" name="nombre" class="entrada-texto">
+              </div>
+              <div class="campo">
+                  <label for="fecha-inicio" class="label-margin">{{$t('serviceOfferForm.durationLabel')}}</label>
+                 <input type="date" id="fecha-inicio" name="fecha-inicio" class="entrada-texto">
+              </div>
+          </fieldset>
 
-            <fieldset>
-                <legend>Detalles</legend>
-                <div class="campo">
-                    <label for="descripcion">Descripción:</label>
-                    <textarea id="descripcion" name="descripcion" class="entrada-texto"></textarea>
-                </div>
-            </fieldset>
+          <fieldset>
+              <legend>{{$t('serviceOfferForm.detailsLegend')}}</legend>
+              <div class="campo">
+                  <label for="descripcion">{{$t('serviceOfferForm.descriptionLabel')}}</label>
+                  <textarea id="descripcion" name="descripcion" class="entrada-texto"></textarea>
+              </div>
+          </fieldset>
 
-            <div class="acciones">
-                <input type="submit" value="Guardar" class="boton-enviar">
-                <input type="reset" value="Cancelar" class="boton-cancelar">
-            </div>
-        </form>
-    </div>
+          <div class="acciones">
+              <input type="submit" value="{{$t('serviceOfferForm.saveButton')}}" class="boton-enviar">
+              <input type="reset" value="{{$t('serviceOfferForm.cancelButton')}}" class="boton-cancelar">
+          </div>
+      </form>
+  </div>
 </template>
+
 
 <style scoped>
 /* Estilo para el contenedor principal */

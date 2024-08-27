@@ -2,26 +2,27 @@
   <transition name="modal">
     <div class="modal-mask" @click.self="closeModal">
       <div class="details-container">
-        <h2>Detalles de Remuneración</h2>
-        <p><strong>Trabajador:</strong> {{ detailsData.trabajador }}</p>
-        <p><strong>Mes del Entregable:</strong> {{ detailsData.mesEntregable }}</p>
-        <p><strong>Valor del Entregable:</strong> {{ detailsData.valorEntregable }}</p>
-        <p><strong>Número de Cuenta:</strong> {{ detailsData.numeroCuenta }}</p>
-        <button class="accept-button" @click="closeModal">Aceptar</button>
+        <h2>{{$t('remunerationDetails.title')}}</h2>
+        <p><strong>{{$t('remunerationDetails.workerLabel')}}</strong> {{ detailsData.trabajador }}</p>
+        <p><strong>{{$t('remunerationDetails.deliverableMonthLabel')}}</strong> {{ detailsData.mesEntregable }}</p>
+        <p><strong>{{$t('remunerationDetails.deliverableValueLabel')}}</strong> {{ detailsData.valorEntregable }}</p>
+        <p><strong>{{$t('remunerationDetails.accountNumberLabel')}}</strong> {{ detailsData.numeroCuenta }}</p>
+        <button class="accept-button" @click="closeModal">{{$t('remunerationDetails.acceptButton')}}</button>
       </div>
     </div>
   </transition>
 </template>
 
-<script lang="ts">
-export default {
-  props: ['detailsData'],
-  methods: {
-    closeModal() {
-      this.$emit('close');
-    }
-  }
-};
+
+<script setup lang="ts">
+// export default {
+//   props: ['detailsData'],
+//   methods: {
+//     closeModal() {
+//       this.$emit('close');
+//     }
+//   }
+// };
 
 </script>
 

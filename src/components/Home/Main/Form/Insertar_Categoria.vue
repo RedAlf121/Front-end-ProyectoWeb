@@ -2,26 +2,25 @@
     <div class="formulario-container">
         <form action="/submit-form" method="post" class="formulario">
             <fieldset>
-                <legend>Categoría</legend>
+                <legend>{{$t('categoryForm.legend')}}</legend>
                 <div class="campo">
-                    <label for="fecha-fin" class="label-margin">Trabajador:</label>
+                    <label for="fecha-fin" class="label-margin">{{$t('categoryForm.workerLabel')}}</label>
                     <input type="text" id="nombre" name="nombre" class="entrada-texto">
                 </div>
                 <div class="campo">
-                    <label for="fecha-inicio" class="label-margin">Cantidad de Horas:</label>
+                    <label for="fecha-inicio" class="label-margin">{{$t('categoryForm.hoursLabel')}}</label>
                     <input type="number" id="margen-ganancia" name="margen-ganancia" class="entrada-texto">
                 </div>
             </fieldset>
 
-            
-
             <div class="acciones">
-                <input type="submit" value="Guardar" class="boton-enviar">
-                <input type="reset" value="Cancelar" class="boton-cancelar">
+                <input type="submit" value="{{$t('categoryForm.saveButton')}}" class="boton-enviar">
+                <input type="reset" value="{{$t('categoryForm.cancelButton')}}" class="boton-cancelar">
             </div>
         </form>
     </div>
 </template>
+
 
 <style scoped>
 /* Estilo para el contenedor principal */

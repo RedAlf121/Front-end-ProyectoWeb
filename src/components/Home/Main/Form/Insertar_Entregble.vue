@@ -2,11 +2,11 @@
     <div class="formulario-container">
         <form action="/submit-form" method="post" class="formulario">
             <fieldset>
-                <legend>Entregable</legend>
+                <legend>{{$t('deliverableForm.legend')}}</legend>
                 <div class="campo">
-                    <label for="fecha-fin" class="label-margin">Trabajador:</label>
+                    <label for="fecha-fin" class="label-margin">{{$t('deliverableForm.workerLabel')}}</label>
                     <select id="cliente" name="cliente" class="entrada-texto">
-                        <option value="">Seleccionar</option>
+                        <option value="">{{$t('deliverableForm.selectOption')}}</option>
                         <!-- Opciones de clientes aquí -->
                         <option value="cliente1">Cliente 1</option>
                         <option value="cliente2">Cliente 2</option>
@@ -14,25 +14,26 @@
                     </select>
                 </div>
                 <div class="campo">
-                    <label for="fecha-inicio" class="label-margin">Cantidad de Horas:</label>
+                    <label for="fecha-inicio" class="label-margin">{{$t('deliverableForm.hoursLabel')}}</label>
                     <input type="number" id="margen-ganancia" name="margen-ganancia" class="entrada-texto">
                 </div>
             </fieldset>
 
             <fieldset>
                 <div class="campo">
-                    <label for="descripcion">Tarea:</label>
+                    <label for="descripcion">{{$t('deliverableForm.taskLabel')}}</label>
                     <textarea id="descripcion" name="descripcion" class="entrada-texto"></textarea>
                 </div>
             </fieldset>
 
             <div class="acciones">
-                <input type="submit" value="Guardar" class="boton-enviar">
-                <input type="reset" value="Cancelar" class="boton-cancelar">
+                <input type="submit" value="{{$t('deliverableForm.saveButton')}}" class="boton-enviar">
+                <input type="reset" value="{{$t('deliverableForm.cancelButton')}}" class="boton-cancelar">
             </div>
         </form>
     </div>
 </template>
+
 
 <style scoped>
 /* Estilo para el contenedor principal */

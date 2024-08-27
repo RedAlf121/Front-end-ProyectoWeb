@@ -1,38 +1,38 @@
 <template>
-    <div class="formulario-container">
-        <form action="/submit-form" method="post" class="formulario">
-            <fieldset>
-                <legend>Oferta Capacitación</legend>
-                <div class="campo">
-                    <label for="nombre" class="label-margin">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" class="entrada-texto">
-                </div>
-                <div class="campo">
-                    <label for="fecha-inicio" class="label-margin">Fecha inicio:</label>
-                   <input type="date" id="fecha-inicio" name="fecha-inicio" class="entrada-texto">
-                </div>
-                <div class="campo">
-                    <label for="fecha-fin" class="label-margin">Fecha fin:</label>
-                   <input type="date" id="fecha-fin" name="fecha-fin" class="entrada-texto">
-                </div>
-               
-            </fieldset>
+  <div class="formulario-container">
+      <form action="/submit-form" method="post" class="formulario">
+          <fieldset>
+              <legend>{{$t('trainingOfferForm.legend')}}</legend>
+              <div class="campo">
+                  <label for="nombre" class="label-margin">{{$t('trainingOfferForm.nameLabel')}}</label>
+                  <input type="text" id="nombre" name="nombre" class="entrada-texto">
+              </div>
+              <div class="campo">
+                  <label for="fecha-inicio" class="label-margin">{{$t('trainingOfferForm.startDateLabel')}}</label>
+                 <input type="date" id="fecha-inicio" name="fecha-inicio" class="entrada-texto">
+              </div>
+              <div class="campo">
+                  <label for="fecha-fin" class="label-margin">{{$t('trainingOfferForm.endDateLabel')}}</label>
+                 <input type="date" id="fecha-fin" name="fecha-fin" class="entrada-texto">
+              </div>
+          </fieldset>
 
-            <fieldset>
-                <legend>Detalles</legend>
-                <div class="campo">
-                    <label for="descripcion">Descripción:</label>
-                    <textarea id="descripcion" name="descripcion" class="entrada-texto"></textarea>
-                </div>
-            </fieldset>
+          <fieldset>
+              <legend>{{$t('trainingOfferForm.detailsLegend')}}</legend>
+              <div class="campo">
+                  <label for="descripcion">{{$t('trainingOfferForm.descriptionLabel')}}</label>
+                  <textarea id="descripcion" name="descripcion" class="entrada-texto"></textarea>
+              </div>
+          </fieldset>
 
-            <div class="acciones">
-                <input type="submit" value="Guardar" class="boton-enviar">
-                <input type="reset" value="Cancelar" class="boton-cancelar">
-            </div>
-        </form>
-    </div>
+          <div class="acciones">
+              <input type="submit" value="{{$t('trainingOfferForm.saveButton')}}" class="boton-enviar">
+              <input type="reset" value="{{$t('trainingOfferForm.cancelButton')}}" class="boton-cancelar">
+          </div>
+      </form>
+  </div>
 </template>
+
 
 <style scoped>
 /* Estilo para el contenedor principal */

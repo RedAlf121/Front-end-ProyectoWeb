@@ -1,24 +1,25 @@
 <template>
-    <div class="formulario-container">
-        <form action="/submit-form" method="post" class="formulario">
-            <fieldset>
-                <legend>Nuevo Plazo</legend>
-                <div class="campo">
-                    <label for="nombre" class="label-margin">Entrega:</label>
-                    <input type="text" id="nombre" name="nombre" class="entrada-texto">
-                </div>
-                <div class="campo">
-                    <label for="fecha-inicio" class="label-margin">Fecha inicio:</label>
-                   <input type="date" id="fecha-inicio" name="fecha-inicio" class="entrada-texto">
-                </div>
-            </fieldset>
-            <div class="acciones">
-                <input type="submit" value="Guardar" class="boton-enviar">
-                <input type="reset" value="Cancelar" class="boton-cancelar">
-            </div>
-        </form>
-    </div>
+  <div class="formulario-container">
+      <form action="/submit-form" method="post" class="formulario">
+          <fieldset>
+              <legend>{{$t('deadlineForm.legend')}}</legend>
+              <div class="campo">
+                  <label for="nombre" class="label-margin">{{$t('deadlineForm.deliveryLabel')}}</label>
+                  <input type="text" id="nombre" name="nombre" class="entrada-texto">
+              </div>
+              <div class="campo">
+                  <label for="fecha-inicio" class="label-margin">{{$t('deadlineForm.startDateLabel')}}</label>
+                 <input type="date" id="fecha-inicio" name="fecha-inicio" class="entrada-texto">
+              </div>
+          </fieldset>
+          <div class="acciones">
+              <input type="submit" value="{{$t('deadlineForm.saveButton')}}" class="boton-enviar">
+              <input type="reset" value="{{$t('deadlineForm.cancelButton')}}" class="boton-cancelar">
+          </div>
+      </form>
+  </div>
 </template>
+
 
 <style scoped>
 /* Estilo para el contenedor principal */

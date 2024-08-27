@@ -1,27 +1,27 @@
 <template>
   <div class="table-container">
-    <h2>Revisar Facturas</h2>
+    <h2>{{$t('invoiceReview.title')}}</h2>
     <div class="filters-container">
-      <input type="text" v-model="filterClient" placeholder="Filtrar por cliente" class="filter-input">
-      <input type="text" v-model="filterInvoice" placeholder="Filtrar por factura" class="filter-input">
-      <input type="text" v-model="filterContract" placeholder="Filtrar por contrato" class="filter-input">
+      <input type="text" v-model="filterClient" placeholder="{{$t('invoiceReview.filterClientPlaceholder')}}" class="filter-input">
+      <input type="text" v-model="filterInvoice" placeholder="{{$t('invoiceReview.filterInvoicePlaceholder')}}" class="filter-input">
+      <input type="text" v-model="filterContract" placeholder="{{$t('invoiceReview.filterContractPlaceholder')}}" class="filter-input">
       <select v-model="filterStatus" class="filter-select">
-        <option value="">Todos</option>
-        <option value="pendiente">Pendiente</option>
-        <option value="pagada">Pagada</option>
+        <option value="">{{$t('invoiceReview.allOption')}}</option>
+        <option value="pendiente">{{$t('invoiceReview.pendingOption')}}</option>
+        <option value="pagada">{{$t('invoiceReview.paidOption')}}</option>
       </select>
     </div>
     <table class="styled-table">
       <thead>
         <tr>
-          <th>Clientes</th>
-          <th>Contratos</th>
-          <th>Próximo Mes del Plazo</th>
-          <th>Mes de Facturación</th>
-          <th>Estado</th>
-          <th>Valor del Plazo</th>
-          <th>Total a Pagar</th>
-          <th>Acciones</th>
+          <th>{{$t('invoiceReview.clientColumn')}}</th>
+          <th>{{$t('invoiceReview.contractColumn')}}</th>
+          <th>{{$t('invoiceReview.nextMonthColumn')}}</th>
+          <th>{{$t('invoiceReview.billingMonthColumn')}}</th>
+          <th>{{$t('invoiceReview.statusColumn')}}</th>
+          <th>{{$t('invoiceReview.valueColumn')}}</th>
+          <th>{{$t('invoiceReview.totalColumn')}}</th>
+          <th>{{$t('invoiceReview.actionsColumn')}}</th>
         </tr>
       </thead>
       <tbody>
@@ -49,6 +49,7 @@
     </table>
   </div>
 </template>
+
 <script>
 export default {
   data() {

@@ -1,42 +1,43 @@
 <template>
-    <div class="table-container">
-      <h2>Listado de Plazos</h2>
+  <div class="table-container">
+      <h2>{{$t('deadlineList.title')}}</h2>
       <div class="filters-container">
-        <input type="text" v-model="filterContract" placeholder="Filtrar por contrato" class="filter-input">
-        <select v-model="filterYear" class="filter-select">
-          <option value="">Todos</option>
-          <!-- Opciones de años -->
-        </select>
+          <input type="text" v-model="filterContract" placeholder="{{$t('deadlineList.filterContractPlaceholder')}}" class="filter-input">
+          <select v-model="filterYear" class="filter-select">
+              <option value="">{{$t('deadlineList.allOption')}}</option>
+              <!-- Opciones de años -->
+          </select>
       </div>
       <table class="styled-table">
-        <thead>
-          <tr>
-            <th>Contrato</th>
-            <th>Mes</th>
-            <th>Año</th>
-            <th>Estado</th>
-            <th>Valor</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(plazo, index) in filteredPlazos" :key="index">
-            <td>{{ plazo.contrato }}</td>
-            <td>{{ plazo.mes }}</td>
-            <td>{{ plazo.ano }}</td>
-            <td>{{ plazo.estado }}</td>
-            <td>{{ plazo.valor }}</td>
-            <td>
-            <button class="action-button delete" @click="eliminar(index)"> <span class="material-icons">delete</span></button>
-            <button class="action-button edit" @click="editar(index)"> <span class="material-icons">edit</span></button>
-            <button class="action-button view" @click="toggleDetails(index)"><span class="material-icons">visibility</span></button>
-          </td>
-          </tr>
-        </tbody>
+          <thead>
+              <tr>
+                  <th>{{$t('deadlineList.contractColumn')}}</th>
+                  <th>{{$t('deadlineList.monthColumn')}}</th>
+                  <th>{{$t('deadlineList.yearColumn')}}</th>
+                  <th>{{$t('deadlineList.statusColumn')}}</th>
+                  <th>{{$t('deadlineList.valueColumn')}}</th>
+                  <th>{{$t('deadlineList.actionsColumn')}}</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="(plazo, index) in filteredPlazos" :key="index">
+                  <td>{{ plazo.contrato }}</td>
+                  <td>{{ plazo.mes }}</td>
+                  <td>{{ plazo.ano }}</td>
+                  <td>{{ plazo.estado }}</td>
+                  <td>{{ plazo.valor }}</td>
+                  <td>
+                      <button class="action-button delete" @click="eliminar(index)"><span class="material-icons">delete</span></button>
+                      <button class="action-button edit" @click="editar(index)"><span class="material-icons">edit</span></button>
+                      <button class="action-button view" @click="toggleDetails(index)"><span class="material-icons">visibility</span></button>
+                  </td>
+              </tr>
+          </tbody>
       </table>
       <RemunerationDetails v-if="showDetails && selectedItem" :details-data="selectedItem" @close="handleCloseDetails"/>
-    </div>
-  </template>
+  </div>
+</template>
+
   
   <script setup lang="ts">
   import RemunerationDetails from './RemunerationDetails.vue';

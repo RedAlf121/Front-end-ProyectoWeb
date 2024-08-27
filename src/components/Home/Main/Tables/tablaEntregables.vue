@@ -1,42 +1,43 @@
 <template>
-    <div class="table-container">
-      <h2>Listado de Tareas</h2>
+  <div class="table-container">
+      <h2>{{$t('taskList.title')}}</h2>
       <div class="filters-container">
-        <input type="text" v-model="filterContract" placeholder="Filtrar por contrato" class="filter-input">
-        <select v-model="filterMonth" class="filter-select">
-          <option value="">Todos</option>
-          <!-- Opciones de meses -->
-        </select>
+          <input type="text" v-model="filterContract" placeholder="{{$t('taskList.filterContractPlaceholder')}}" class="filter-input">
+          <select v-model="filterMonth" class="filter-select">
+              <option value="">{{$t('taskList.allOption')}}</option>
+              <!-- Opciones de meses -->
+          </select>
       </div>
       <table class="styled-table">
-        <thead>
-          <tr>
-            <th>Contrato</th>
-            <th>Mes</th>
-            <th>Trabajador</th>
-            <th>Tareas</th>
-            <th>Estado</th>
-            <th>Valores</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(tarea, index) in filteredTareas" :key="index">
-            <td>{{ tarea.contrato }}</td>
-            <td>{{ tarea.mes }}</td>
-            <td>{{ tarea.trabajador }}</td>
-            <td>{{ tarea.tareas }}</td>
-            <td>{{ tarea.estado }}</td>
-            <td>{{ tarea.valores }}</td>
-            <td>
-                <button class="action-button view" @click="toggleDetails(index)"><span class="material-icons">visibility</span></button>
-            </td>
-          </tr>
-        </tbody>
+          <thead>
+              <tr>
+                  <th>{{$t('taskList.contractColumn')}}</th>
+                  <th>{{$t('taskList.monthColumn')}}</th>
+                  <th>{{$t('taskList.workerColumn')}}</th>
+                  <th>{{$t('taskList.tasksColumn')}}</th>
+                  <th>{{$t('taskList.statusColumn')}}</th>
+                  <th>{{$t('taskList.valuesColumn')}}</th>
+                  <th>{{$t('taskList.actionsColumn')}}</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="(tarea, index) in filteredTareas" :key="index">
+                  <td>{{ tarea.contrato }}</td>
+                  <td>{{ tarea.mes }}</td>
+                  <td>{{ tarea.trabajador }}</td>
+                  <td>{{ tarea.tareas }}</td>
+                  <td>{{ tarea.estado }}</td>
+                  <td>{{ tarea.valores }}</td>
+                  <td>
+                      <button class="action-button view" @click="toggleDetails(index)"><span class="material-icons">visibility</span></button>
+                  </td>
+              </tr>
+          </tbody>
       </table>
       <TaskDetails v-if="showDetails && selectedItem" :task-details="selectedItem" @close="handleCloseDetails"/>
-    </div>
-  </template>
+  </div>
+</template>
+
   
   <script>
   

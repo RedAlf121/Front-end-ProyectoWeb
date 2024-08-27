@@ -2,46 +2,46 @@
     <div class="formulario-container">
         <form action="/submit-form" method="post" class="formulario">
             <fieldset>
-                <legend>Trabajador</legend>
+                <legend>{{$t('workerForm.legend')}}</legend>
                 <table>
                     <tr>
-                        <td><label for="dni-texto" class="label-margin">DNI:</label></td>
+                        <td><label for="dni-texto" class="label-margin">{{$t('workerForm.dniLabel')}}</label></td>
                         <td><input type="text" id="dni-texto" name="dni-texto" class="entrada-texto"></td>
                     </tr>
                     <tr>
-                        <td><label for="nombre-texto" class="label-margin">Nombre:</label></td>
+                        <td><label for="nombre-texto" class="label-margin">{{$t('workerForm.nameLabel')}}</label></td>
                         <td><input type="text" id="nombre-texto" name="nombre-texto" class="entrada-texto"></td>
                     </tr>
                     <tr>
-                        <td><label for="direccion" class="label-margin">Dirección:</label></td>
+                        <td><label for="direccion" class="label-margin">{{$t('workerForm.addressLabel')}}</label></td>
                         <td><input type="text" id="direccion" name="direccion" class="entrada-texto"></td>
                     </tr>
                     <tr>
-                        <td><label for="telefono" class="label-margin">Teléfono:</label></td>
+                        <td><label for="telefono" class="label-margin">{{$t('workerForm.phoneLabel')}}</label></td>
                         <td><input type="tel" id="telefono" name="telefono" class="entrada-texto"></td>
                     </tr>
                     <tr>
-                        <td><label for="email" class="label-margin">Email:</label></td>
+                        <td><label for="email" class="label-margin">{{$t('workerForm.emailLabel')}}</label></td>
                         <td><input type="email" id="email" name="email" class="entrada-texto"></td>
                     </tr>
                     <tr>
-                        <td><label for="departamento-select" class="label-margin">Departamento:</label></td>
+                        <td><label for="departamento-select" class="label-margin">{{$t('workerForm.departmentLabel')}}</label></td>
                         <td>
                             <select id="departamento-select" name="departamento-select" class="entrada-texto">
-                                <option value="">Seleccione</option>
+                                <option value="">{{$t('workerForm.selectOption')}}</option>
                                 <!-- Aquí van las opciones de departamentos -->
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="numero-de-cuenta" class="label-margin">Número de Cuenta:</label></td>
+                        <td><label for="numero-de-cuenta" class="label-margin">{{$t('workerForm.accountNumberLabel')}}</label></td>
                         <td><input type="text" id="numero-de-cuenta" name="numero-de-cuenta" class="entrada-texto"></td>
                     </tr>
                     <tr>
-                        <td><label for="categoria-select" class="label-margin">Categoría:</label></td>
+                        <td><label for="categoria-select" class="label-margin">{{$t('workerForm.categoryLabel')}}</label></td>
                         <td>
                             <select id="categoria-select" name="categoria-select" class="entrada-texto">
-                                <option value="">Seleccione</option>
+                                <option value="">{{$t('workerForm.selectOption')}}</option>
                                 <!-- Aquí van las opciones de categorías -->
                             </select>
                         </td>
@@ -50,16 +50,13 @@
             </fieldset>
 
             <div class="acciones">
-                <input type="submit" value="Guardar" class="boton-enviar">
-                <input type="reset" value="Cancelar" class="boton-cancelar">
+                <input type="submit" value="{{$t('workerForm.saveButton')}}" class="boton-enviar">
+                <input type="reset" value="{{$t('workerForm.cancelButton')}}" class="boton-cancelar">
             </div>
         </form>
     </div>
 </template>
 
-<script>
-
-</script>
 
 <style scoped>
 /* Estilo para el contenedor principal */

@@ -1,44 +1,45 @@
 <template>
-    <div class="table-container">
-      <h2>Listado de Contratos</h2>
+  <div class="table-container">
+      <h2>{{$t('contractList.title')}}</h2>
       <div class="filters-container">
-        <input type="text" v-model="filterTitle" placeholder="Filtrar por título" class="filter-input">
-        <input type="text" v-model="filterClient" placeholder="Filtrar por cliente" class="filter-input">
-        <input type="text" v-model="filterManager" placeholder="Filtrar por gestor" class="filter-input">
-        <input type="text" v-model="filterOffer" placeholder="Filtrar por oferta" class="filter-input">
-        <button class="boton" > Nuevo Contrato </button>
+          <input type="text" v-model="filterTitle" placeholder="{{$t('contractList.filterTitlePlaceholder')}}" class="filter-input">
+          <input type="text" v-model="filterClient" placeholder="{{$t('contractList.filterClientPlaceholder')}}" class="filter-input">
+          <input type="text" v-model="filterManager" placeholder="{{$t('contractList.filterManagerPlaceholder')}}" class="filter-input">
+          <input type="text" v-model="filterOffer" placeholder="{{$t('contractList.filterOfferPlaceholder')}}" class="filter-input">
+          <button class="boton">{{$t('contractList.newContractButton')}}</button>
       </div>
       <table class="styled-table">
-        <thead>
-          <tr>
-            <th>Título</th>
-            <th>Cliente</th>
-            <th>Gestor</th>
-            <th>Fecha Inicio</th>
-            <th>Fecha Fin</th>
-            <th>Oferta</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(proyecto, index) in filteredProyectos" :key="index">
-            <td>{{ proyecto.titulo }}</td>
-            <td>{{ proyecto.cliente }}</td>
-            <td>{{ proyecto.gestor }}</td>
-            <td>{{ proyecto.fechaInicio }}</td>
-            <td>{{ proyecto.fechaFin }}</td>
-            <td>{{ proyecto.oferta }}</td>
-            <td>
-              <button class="action-button delete" @click="eliminar(index)"> <span class="material-icons">delete</span></button>
-              <button class="action-button edit" @click="editar(index)"> <span class="material-icons">edit</span></button>
-              <button class="action-button view" @click="toggleDetails(index)"><span class="material-icons">visibility</span></button>
-            </td>
-          </tr>
-        </tbody>
+          <thead>
+              <tr>
+                  <th>{{$t('contractList.titleColumn')}}</th>
+                  <th>{{$t('contractList.clientColumn')}}</th>
+                  <th>{{$t('contractList.managerColumn')}}</th>
+                  <th>{{$t('contractList.startDateColumn')}}</th>
+                  <th>{{$t('contractList.endDateColumn')}}</th>
+                  <th>{{$t('contractList.offerColumn')}}</th>
+                  <th>{{$t('contractList.actionsColumn')}}</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="(proyecto, index) in filteredProyectos" :key="index">
+                  <td>{{ proyecto.titulo }}</td>
+                  <td>{{ proyecto.cliente }}</td>
+                  <td>{{ proyecto.gestor }}</td>
+                  <td>{{ proyecto.fechaInicio }}</td>
+                  <td>{{ proyecto.fechaFin }}</td>
+                  <td>{{ proyecto.oferta }}</td>
+                  <td>
+                      <button class="action-button delete" @click="eliminar(index)"><span class="material-icons">delete</span></button>
+                      <button class="action-button edit" @click="editar(index)"><span class="material-icons">edit</span></button>
+                      <button class="action-button view" @click="toggleDetails(index)"><span class="material-icons">visibility</span></button>
+                  </td>
+              </tr>
+          </tbody>
       </table>
       <RemunerationDetails v-if="showDetails && selectedItem" :details-data="selectedItem" @close="handleCloseDetails"/>
-    </div>
-  </template>
+  </div>
+</template>
+
   
   <script setup lang="ts">
   import RemunerationDetails from './RemunerationDetails.vue';

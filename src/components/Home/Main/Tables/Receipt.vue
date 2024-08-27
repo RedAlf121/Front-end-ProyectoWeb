@@ -2,17 +2,18 @@
   <transition name="modal">
     <div class="modal-mask" @click.self="closeModal">
       <div class="receipt-container">
-        <h2>Recibo de Pago</h2>
-        <p><strong>Cliente:</strong> {{ receiptData.client }}</p>
-        <p><strong>Contrato:</strong> {{ receiptData.contract }}</p>
-        <p><strong>Mes de Factura:</strong> {{ receiptData.invoiceMonth }}</p>
-            <p><strong>Fecha de Pago:</strong> {{ formattedDate }}</p>
-        <p><strong>Cantidad de Pago:</strong> {{ receiptData.amount }}</p>
-        <button class="accept-button" @click="closeModal">Aceptar</button>
+        <h2>{{$t('receiptForm.title')}}</h2>
+        <p><strong>{{$t('receiptForm.clientLabel')}}</strong> {{ receiptData.client }}</p>
+        <p><strong>{{$t('receiptForm.contractLabel')}}</strong> {{ receiptData.contract }}</p>
+        <p><strong>{{$t('receiptForm.invoiceMonthLabel')}}</strong> {{ receiptData.invoiceMonth }}</p>
+        <p><strong>{{$t('receiptForm.paymentDateLabel')}}</strong> {{ formattedDate }}</p>
+        <p><strong>{{$t('receiptForm.amountLabel')}}</strong> {{ receiptData.amount }}</p>
+        <button class="accept-button" @click="closeModal">{{$t('receiptForm.acceptButton')}}</button>
       </div>
-      </div>
+    </div>
   </transition>
 </template>
+
 
 <script>
 export default {

@@ -1,21 +1,21 @@
 <template>
   <div class="table-container">
-    <h2>Remuneraciones</h2>
+    <h2>{{$t('remunerationList.title')}}</h2>
     <div class="filters-container">
-      <input type="text" v-model="filterContract" placeholder="Filtrar por contrato" class="filter-input">
+      <input type="text" v-model="filterContract" placeholder="{{$t('remunerationList.filterContractPlaceholder')}}" class="filter-input">
       <select v-model="filterMonth" class="filter-select">
-        <option value="">Todos</option>
+        <option value="">{{$t('remunerationList.allOption')}}</option>
         <!-- Opciones de meses -->
       </select>
     </div>
     <table class="styled-table">
       <thead>
         <tr>
-          <th>Contrato</th>
-          <th>Mes de Factura</th>
-          <th>Fecha de Remuneración</th>
-          <th>Total Remunerado</th>
-          <th>Acciones</th>
+          <th>{{$t('remunerationList.contractColumn')}}</th>
+          <th>{{$t('remunerationList.invoiceMonthColumn')}}</th>
+          <th>{{$t('remunerationList.remunerationDateColumn')}}</th>
+          <th>{{$t('remunerationList.totalRemuneratedColumn')}}</th>
+          <th>{{$t('remunerationList.actionsColumn')}}</th>
         </tr>
       </thead>
       <tbody>
@@ -25,8 +25,8 @@
           <td>{{ item.fechaRemuneracion }}</td>
           <td>{{ item.totalRemunerado }}</td>
           <td>
-            <button class="action-button delete" @click="eliminar(index)"> <span class="material-icons">delete</span></button>
-            <button class="action-button edit" @click="editar(index)"> <span class="material-icons">edit</span></button>
+            <button class="action-button delete" @click="eliminar(index)"><span class="material-icons">delete</span></button>
+            <button class="action-button edit" @click="editar(index)"><span class="material-icons">edit</span></button>
             <button class="action-button view" @click="toggleDetails(index)"><span class="material-icons">visibility</span></button>
           </td>
         </tr>
@@ -35,6 +35,7 @@
     <RemunerationDetails v-if="showDetails && selectedItem" :details-data="selectedItem" @close="handleCloseDetails"/>
   </div>
 </template>
+
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';

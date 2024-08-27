@@ -2,31 +2,29 @@
   <div class="formulario-container">
     <form action="/submit-form" method="post" class="formulario">
       <fieldset>
-        <legend>Contrato</legend>
+        <legend>{{$t('contractForm.legend')}}</legend>
         <table>
           <tr>
-            <td><label for="titulo">Título:</label></td>
+            <td><label for="titulo">{{$t('contractForm.titleLabel')}}</label></td>
             <td><input type="text" id="titulo" name="titulo" class="entrada-texto"></td>
           </tr>
           <tr>
-            <td><label for="cliente">Cliente:</label></td>
+            <td><label for="cliente">{{$t('contractForm.clientLabel')}}</label></td>
             <td>
               <select id="cliente" name="cliente" class="seleccion-cliente">
-                <option value="">Seleccionar</option>
+                <option value="">{{$t('contractForm.selectOption')}}</option>
                 <!-- Opciones de clientes aquí -->
                 <option value="cliente1">Cliente 1</option>
                 <option value="cliente2">Cliente 2</option>
                 <option value="cliente3">Cliente 3</option>
               </select>
-              
-          
             </td>
           </tr>
           <tr>
-            <td><label for="gestor">Gestor:</label></td>
+            <td><label for="gestor">{{$t('contractForm.managerLabel')}}</label></td>
             <td>
               <select id="gestor" name="gestor" class="seleccion-gestor">
-                <option value="">Seleccionar</option>
+                <option value="">{{$t('contractForm.selectOption')}}</option>
                 <!-- Opciones de clientes aquí -->
                 <option value="cliente1">Cliente 1</option>
                 <option value="cliente2">Cliente 2</option>
@@ -38,18 +36,18 @@
       </fieldset>
 
       <fieldset>
-        <legend>Fechas</legend>
+        <legend>{{$t('contractForm.datesLegend')}}</legend>
         <table>
           <tr>
-            <td><label for="fecha-inicio">Fecha de inicio:</label></td>
+            <td><label for="fecha-inicio">{{$t('contractForm.startDateLabel')}}</label></td>
             <td><input type="date" id="fecha-inicio" name="fecha-inicio" class="entrada-date"></td>
           </tr>
           <tr>
-            <td><label for="fecha-fin">Fecha fin:</label></td>
+            <td><label for="fecha-fin">{{$t('contractForm.endDateLabel')}}</label></td>
             <td><input type="date" id="fecha-fin" name="fecha-fin" class="entrada-date"></td>
           </tr>
           <tr>
-            <td><label for="fecha-conciliacion">Fecha conciliación:</label></td>
+            <td><label for="fecha-conciliacion">{{$t('contractForm.reconciliationDateLabel')}}</label></td>
             <td><input type="date" id="fecha-conciliacion" name="fecha-conciliacion" class="entrada-date"></td>
           </tr>
         </table>
@@ -57,29 +55,28 @@
 
       <div class="secciones-laterales">
         <fieldset>
-          <legend>Detalles</legend>
+          <legend>{{$t('contractForm.detailsLegend')}}</legend>
           <table>
-            
             <tr>
-              <td><label for="area">Área de trabajo:</label></td>
-              <td><input type="text" id="area" name="Ärea" class="entrada-texto"></td>
+              <td><label for="area">{{$t('contractForm.workAreaLabel')}}</label></td>
+              <td><input type="text" id="area" name="area" class="entrada-texto"></td>
             </tr>
             <tr>
-              <td><label for="descripcion">Descripción:</label></td>
+              <td><label for="descripcion">{{$t('contractForm.descriptionLabel')}}</label></td>
               <td><textarea id="descripcion" name="descripcion" class="area-texto"></textarea></td>
             </tr>
           </table>
         </fieldset>
 
         <fieldset>
-          <legend>Configuración</legend>
+          <legend>{{$t('contractForm.settingsLegend')}}</legend>
           <table>
             <tr>
-              <td><label>Margen de ganancia (%):</label></td>
+              <td><label>{{$t('contractForm.profitMarginLabel')}}</label></td>
               <td><input type="number" id="margen-ganancia" name="margen-ganancia" step="0.01" class="entrada-numero"></td>
             </tr>
             <tr>
-              <td><label>Moneda:</label></td>
+              <td><label>{{$t('contractForm.currencyLabel')}}</label></td>
               <td>
                 <input type="checkbox" id="mlc" name="moneda" value="MLC" class="opcion-moneda">
                 <label for="mlc">MLC</label>
@@ -92,13 +89,14 @@
       </div>
 
       <div class="acciones">
-        <button type="button" class="boton-seleccion">Inserta nuevo cliente</button>
-        <input type="submit" value="Enviar" class="boton-enviar">
-        <input type="reset" value="Cancelar" class="boton-cancelar">
+        <button type="button" class="boton-seleccion">{{$t('contractForm.insertClientButton')}}</button>
+        <input type="submit" value="{{$t('contractForm.submitButton')}}" class="boton-enviar">
+        <input type="reset" value="{{$t('contractForm.resetButton')}}" class="boton-cancelar">
       </div>
     </form>
   </div>
 </template>
+
 
 <style>
 /* Estilo para el contenedor principal */

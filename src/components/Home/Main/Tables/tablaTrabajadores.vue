@@ -1,26 +1,27 @@
 <template>
-    <div class="table-container">
-      <h2>Listado de Trabajadores</h2>
+  <div class="table-container">
+      <h2>{{$t('workerList.title')}}</h2>
       <table class="styled-table">
-        <thead>
-          <tr>
-            <th>Carnet</th>
-            <th>Nombre</th>
-            <th>Categoría</th>
-            <th>Detalles</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(trabajador, index) in trabajadores" :key="index">
-            <td>{{ trabajador.carnet }}</td>
-            <td>{{ trabajador.nombre }}</td>
-            <td>{{ trabajador.categoria }}</td>
-            <button class="action-button view" @click="toggleDetails(index)"><span class="material-icons">visibility</span></button>
-          </tr>
-        </tbody>
+          <thead>
+              <tr>
+                  <th>{{$t('workerList.idColumn')}}</th>
+                  <th>{{$t('workerList.nameColumn')}}</th>
+                  <th>{{$t('workerList.categoryColumn')}}</th>
+                  <th>{{$t('workerList.detailsColumn')}}</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="(trabajador, index) in trabajadores" :key="index">
+                  <td>{{ trabajador.carnet }}</td>
+                  <td>{{ trabajador.nombre }}</td>
+                  <td>{{ trabajador.categoria }}</td>
+                  <button class="action-button view" @click="toggleDetails(index)"><span class="material-icons">visibility</span></button>
+              </tr>
+          </tbody>
       </table>
-    </div>
-  </template>
+  </div>
+</template>
+
   
   <script>
   export default {

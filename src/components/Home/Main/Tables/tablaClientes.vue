@@ -1,40 +1,40 @@
 <template>
-    <div class="table-container">
-      <h2>Listado de Clientes</h2>
+  <div class="table-container">
+      <h2>{{$t('clientList.title')}}</h2>
       <div class="filters-container">
-        <input type="text" v-model="filterName" placeholder="Filtrar por nombre" class="filter-input">
-        <input type="text" v-model="filterAddress" placeholder="Filtrar por dirección" class="filter-input">
-        <input type="text" v-model="filterEmail" placeholder="Filtrar por email" class="filter-input">
-        <button class="boton" > Nuevo Cliente </button>
- 
+          <input type="text" v-model="filterName" placeholder="{{$t('clientList.filterNamePlaceholder')}}" class="filter-input">
+          <input type="text" v-model="filterAddress" placeholder="{{$t('clientList.filterAddressPlaceholder')}}" class="filter-input">
+          <input type="text" v-model="filterEmail" placeholder="{{$t('clientList.filterEmailPlaceholder')}}" class="filter-input">
+          <button class="boton">{{$t('clientList.newClientButton')}}</button>
       </div>
       <table class="styled-table">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Dirección</th>
-            <th>Teléfono</th>
-            <th>Email</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(contacto, index) in filteredContactos" :key="index">
-            <td>{{ contacto.nombre }}</td>
-            <td>{{ contacto.direccion }}</td>
-            <td>{{ contacto.telefono }}</td>
-            <td>{{ contacto.email }}</td>
-            <td>
-              <button class="action-button delete" @click="eliminar(index)"> <span class="material-icons">delete</span></button>
-              <button class="action-button edit" @click="editar(index)"> <span class="material-icons">edit</span></button>
-              <button class="action-button view" @click="toggleDetails(index)"><span class="material-icons">visibility</span></button>
-            </td>
-          </tr>
-        </tbody>
+          <thead>
+              <tr>
+                  <th>{{$t('clientList.nameColumn')}}</th>
+                  <th>{{$t('clientList.addressColumn')}}</th>
+                  <th>{{$t('clientList.phoneColumn')}}</th>
+                  <th>{{$t('clientList.emailColumn')}}</th>
+                  <th>{{$t('clientList.actionsColumn')}}</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="(contacto, index) in filteredContactos" :key="index">
+                  <td>{{ contacto.nombre }}</td>
+                  <td>{{ contacto.direccion }}</td>
+                  <td>{{ contacto.telefono }}</td>
+                  <td>{{ contacto.email }}</td>
+                  <td>
+                      <button class="action-button delete" @click="eliminar(index)"><span class="material-icons">delete</span></button>
+                      <button class="action-button edit" @click="editar(index)"><span class="material-icons">edit</span></button>
+                      <button class="action-button view" @click="toggleDetails(index)"><span class="material-icons">visibility</span></button>
+                  </td>
+              </tr>
+          </tbody>
       </table>
       <RemunerationDetails v-if="showDetails && selectedItem" :details-data="selectedItem" @close="handleCloseDetails"/>
-    </div>
-  </template>
+  </div>
+</template>
+
   
   <script setup lang="ts">
   import RemunerationDetails from './RemunerationDetails.vue';
