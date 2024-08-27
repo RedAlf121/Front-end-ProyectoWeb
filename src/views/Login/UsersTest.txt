@@ -1,0 +1,14 @@
+Aqui estan los usuarios de prueba por cada rol.
+La contraseña es la misma: 12345678ñ
+
+admin:
+radmin
+
+rrhh:
+ramsource
+
+project manager:
+ramger
+
+accounter:
+ramcounter
