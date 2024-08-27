@@ -1,8 +1,7 @@
 <script setup lang="ts">
     import {ref} from 'vue';
-    import { userStore } from '../../../store/userStore';
-    const store = userStore();
-    const username = ref(store.userName);
+    import userStoreInstance from '../../../store/userStore';
+    const username = ref(userStoreInstance.userName);
 </script>
 
 <template>

@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { userStore } from '../../../store/userStore';
+import userStoreInstance from '../../../store/userStore';
 
-const user = userStore();
-const options = user.userOptions;
-const activeItems = ref(user.userOptions.map((_,i)=>(i==0)));
+
+console.log({
+    'username': userStoreInstance.userName,
+    'options': userStoreInstance.userOptions
+});
+const options = userStoreInstance.userOptions;
+const activeItems = ref(userStoreInstance.userOptions.map((_,i)=>(i==0)));
 function toggleItem(index:number):void{
     activeItems.value = activeItems.value.map((_,i)=>(index==i));
 }

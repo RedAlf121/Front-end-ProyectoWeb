@@ -1,18 +1,21 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import { Input } from 'ant-design-vue';
-  import { userStore } from '../../store/userStore';
   import { useRouter } from 'vue-router';
   import UserFactory from '../../store/user-management/UserFactory.ts';
+  import userStoreInstance from '../../store/userStore.ts';
   
   const route = useRouter();
   const userValue = ref<string>('');
   const passwordValue = ref<string>('');
 
-  function submitUserValues() {
-    const user = UserFactory.buildUser(`${userValue.value} ${userValue.value}`);
-    const store = userStore();
-    store.$patch({userName: user.name, userOptions:user.options});
+  function save(userData){
+    userStoreInstance.token = userData.token.access;
+    userStoreInstance.refreshToken = userData.token.refresh;
+  }
+
+  async function submitUserValues() {
+    const userData = await UserFactory.buildUser("http://localhost:8000/api/jwtoken/",userValue.value,passwordValue.value);
+    save(userData);
     route.push({name:'home'});
   }
 </script>
