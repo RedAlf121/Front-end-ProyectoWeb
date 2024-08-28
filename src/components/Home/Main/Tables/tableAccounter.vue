@@ -1,8 +1,10 @@
 <template>
   <div class="table-container">
-    
 
+
+    <!--
     <CustomTable :title="t('invoiceReview.title')" fieldAsID="email" :columns="columns" :queryOptions="queryOptions" />
+  -->
   </div>
 </template>
 
@@ -10,14 +12,14 @@
 import { useI18n } from 'vue-i18n';
 import CustomTable from '../../../../assets/components/CustomTable.vue';
 import { useReceipts } from '../../../../composables/useReceipts';
-const {t} =useI18n()
+const { t } = useI18n()
 const columns = [{
-  field: 'email',
-  header: 'Email'
+  field: '1',
+  header: '1'
 },
 {
-  field: 'role',
-  header: 'Role'
+  field: '1',
+  header: '1'
 },
 ]
 
@@ -32,7 +34,7 @@ const columns = [{
           <th>{{$t('invoiceReview.actionsColumn')}}</th>
         </tr>*/
 const queryOptions = {
-  queryFunction: useReceipts,
+  //queryFunction: useReceipts,
 }
 </script>
 
