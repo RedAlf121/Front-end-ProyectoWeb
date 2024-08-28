@@ -1,7 +1,17 @@
 <script setup lang="ts">
-    import {ref} from 'vue';
-    import userStoreInstance from '../../../store/userStore';
-    const username = ref(userStoreInstance.userName);
+import { ref } from 'vue';
+
+import userStoreInstance from '../../../store/userStore';
+import i18n from '../../../languages';
+const username = ref(userStoreInstance.userName);
+
+function spanish(){
+    i18n.global.locale='es';
+}
+
+function english(){
+    i18n.global.locale='en';
+}
 </script>
 
 <template>
@@ -14,7 +24,7 @@
                 <div class="dropdown dropdown-c">
                     <a href="#" class="logged-user" data-toggle="dropdown">
                         <img src="http://via.placeholder.com/500x500" alt="">
-                        <span>{{username}}</span>
+                        <span>{{ username }}</span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
@@ -24,10 +34,33 @@
                             <router-link to="/" class="nav-link"><i class="icon ion-forward"></i> Sign Out</router-link>
                         </nav>
                     </div><!-- dropdown-menu -->
+
+
                 </div><!-- dropdown -->
+                <!-- Nuevo dropdown para seleccionar el idioma -->
+                <div class="dropdown dropdown-languages ml-3">
+                    <a href="#" class="nav-link" data-toggle="dropdown">
+                        <i class="fa fa-language"></i> Language
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <nav class="nav">
+                            <a href="#" @click="spanish()" class="nav-link"><i class="icon ion-earth"></i> Español</a>
+                            <a href="#" @click="english()" class="nav-link"><i class="icon ion-earth"></i> English</a>
+                        </nav>
+                    </div><!-- dropdown-menu -->
+                </div><!-- dropdown-languages -->
             </div><!-- header-right -->
         </div><!-- container -->
     </div>
 
 
 </template>
+
+<style>
+.slim-header-right {
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+}
+</style>

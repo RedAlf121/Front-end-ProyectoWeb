@@ -3,10 +3,6 @@ import { ref } from 'vue';
 import userStoreInstance from '../../../store/userStore';
 
 
-console.log({
-    'username': userStoreInstance.userName,
-    'options': userStoreInstance.userOptions
-});
 const options = userStoreInstance.userOptions;
 const activeItems = ref(userStoreInstance.userOptions.map((_,i)=>(i==0)));
 function toggleItem(index:number):void{

@@ -13,8 +13,8 @@
               </div>
           </fieldset>
           <div class="acciones">
-              <input type="submit" value="{{$t('deadlineForm.saveButton')}}" class="boton-enviar">
-              <input type="reset" value="{{$t('deadlineForm.cancelButton')}}" class="boton-cancelar">
+              <input type="submit" :value="$t('deadlineForm.saveButton')" class="boton-enviar">
+              <input type="reset" :value="$t('deadlineForm.cancelButton')" class="boton-cancelar">
           </div>
       </form>
   </div>

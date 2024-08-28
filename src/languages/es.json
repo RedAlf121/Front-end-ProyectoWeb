@@ -1,8 +1,8 @@
 {
-    "message":{
+    "message": {
         "test": "Panel"
     },
-    "login":{
+    "login": {
         "welcomeMessage": "¡Bienvenido!",
         "loginSession": "Inicia sesión para continuar",
         "usernamePlaceholder": "Ingrese su usuario",
@@ -11,21 +11,21 @@
         "forgotPasswordCaption": "¿Olvidó su contraseña?",
         "forgotPasswordLink": "Click aquí"
     },
-    "nav":{
-        "projectManager":{
+    "nav": {
+        "projectManager": {
             "client": {
                 "client": "Cliente",
                 "insert": "Insertar @:nav.projectManager.client.client",
                 "manage": "Administrar @:nav.projectManager.client.client"
             },
-            "contract":{
+            "contract": {
                 "client": "Contrato",
                 "insert": "Insertar @:nav.projectManager.contract.contract",
                 "manage": "Administrar @:nav.projectManager.contract.contract"
             },
-            "payterm":"Plazos"
+            "payterm": "Plazos"
         },
-        "accounter":{
+        "accounter": {
             "recieve": {
                 "recieve": "Recibo",
                 "actual": "@:nav.accounter.recieve.recieve actual",
@@ -33,13 +33,24 @@
             },
             "remmuneration": "Remuneración"
         },
-        "humanResources":{
-            "worker":{
+        "humanResources": {
+            "worker": {
                 "worker": "trabajadores",
                 "add": "Añadir @:nav.humanResources.worker.worker",
                 "manage": "Administrar @:nav.humanResources.worker.worker"
             }
         }
+    },
+    "user": {
+        "legend": "Usuario",
+        "nameLabel": "Nombre:",
+        "LastnameLabel": "Apellidos:",
+        "usernameLabel": "Nombre de Usuario:",
+        "passLabel": "contraseña:",
+        "rolLabel": "Categoría:",
+        "selectOption": "Seleccione",
+        "saveButton": "Guardar",
+        "cancelButton": "Cancelar"
     },
     "contractForm": {
         "legend": "Contrato",
@@ -60,8 +71,8 @@
         "insertClientButton": "Inserta nuevo cliente",
         "submitButton": "Enviar",
         "resetButton": "Cancelar"
-      },
-      "categoryForm": {
+    },
+    "categoryForm": {
         "legend": "Categoría",
         "workerLabel": "Trabajador:",
         "hoursLabel": "Cantidad de Horas:",
@@ -127,15 +138,7 @@
         "saveButton": "Guardar",
         "cancelButton": "Cancelar"
     },
-
-
-
-
-
-
-
-
-     "receiptForm": {
+    "receiptForm": {
         "title": "Recibo de Pago",
         "clientLabel": "Cliente:",
         "contractLabel": "Contrato:",
@@ -144,7 +147,7 @@
         "amountLabel": "Cantidad de Pago:",
         "acceptButton": "Aceptar"
     },
-   "remunerationDetails": {
+    "remunerationDetails": {
         "title": "Detalles de Remuneración",
         "workerLabel": "Trabajador:",
         "deliverableMonthLabel": "Mes del Entregable:",
@@ -191,7 +194,7 @@
         "valuesColumn": "Valores",
         "actionsColumn": "Acciones"
     },
-     "deadlineList": {
+    "deadlineList": {
         "title": "Listado de Plazos",
         "filterContractPlaceholder": "Filtrar por contrato",
         "allOption": "Todos",
@@ -226,7 +229,7 @@
         "totalColumn": "Total a Pagar",
         "actionsColumn": "Acciones"
     },
-     "remunerationList": {
+    "remunerationList": {
         "title": "Remuneraciones",
         "filterContractPlaceholder": "Filtrar por contrato",
         "allOption": "Todos",
@@ -236,23 +239,15 @@
         "totalRemuneratedColumn": "Total Remunerado",
         "actionsColumn": "Acciones"
     },
-
-
-
-
-
-
-
     "rrhh": {
         "insertCategory": "Insertar Categoría",
         "insertWorker": "Insertar Trabajador",
         "workers": "Trabajadores"
-     },
-
-      "pm": {
+    },
+    "pm": {
         "insertClient": "Insertar Cliente",
         "insertContract": "Insertar Contrato",
-        "contract" : "Contractos",
+        "contract": "Contractos",
         "clients": "Clientes",
         "deadlines": "Plazos"
     }

@@ -2,7 +2,7 @@
   <div class="table-container">
       <h2>{{$t('deadlineList.title')}}</h2>
       <div class="filters-container">
-          <input type="text" v-model="filterContract" placeholder="{{$t('deadlineList.filterContractPlaceholder')}}" class="filter-input">
+          <input type="text" v-model="filterContract" :placeholder="$t('deadlineList.filterContractPlaceholder')" class="filter-input">
           <select v-model="filterYear" class="filter-select">
               <option value="">{{$t('deadlineList.allOption')}}</option>
               <!-- Opciones de años -->

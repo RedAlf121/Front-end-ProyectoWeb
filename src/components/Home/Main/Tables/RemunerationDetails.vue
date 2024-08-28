@@ -14,15 +14,15 @@
 </template>
 
 
-<script setup lang="ts">
-// export default {
-//   props: ['detailsData'],
-//   methods: {
-//     closeModal() {
-//       this.$emit('close');
-//     }
-//   }
-// };
+<script lang="ts">
+export default {
+  props: ['detailsData'],
+  methods: {
+    closeModal() {
+      this.$emit('close');
+    }
+  }
+};
 
 </script>
 

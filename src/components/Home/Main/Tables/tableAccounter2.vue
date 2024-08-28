@@ -2,7 +2,7 @@
   <div class="table-container">
     <h2>{{$t('remunerationList.title')}}</h2>
     <div class="filters-container">
-      <input type="text" v-model="filterContract" placeholder="{{$t('remunerationList.filterContractPlaceholder')}}" class="filter-input">
+      <input type="text" v-model="filterContract" :placeholder="$t('remunerationList.filterContractPlaceholder')" class="filter-input">
       <select v-model="filterMonth" class="filter-select">
         <option value="">{{$t('remunerationList.allOption')}}</option>
         <!-- Opciones de meses -->

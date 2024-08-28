@@ -1,43 +1,37 @@
 <template>
   <div class="table-container">
-
-
-
-
-    <CustomTable :title="t('clientList.title')" fieldAsID="id_client" fieldAsActive="is_active" :columns="columns"
-      :queryOptions="queryOptions" >
-    <template #info>
-       {{ model }}
-       Aqui darle el formato de la info
-    </template>
-    <template #form>
-      <FloatLabel>
-        <InputText v-model="model.name_client" id="name" fluid></InputText>
-        <label for="name"> {{ $t('clientForm.nameLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.email_client" id="email" fluid></InputText>
-        <label for="email"> {{ $t('clientForm.emailLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.address_client" id="address" fluid></InputText>
-        <label for="address"> {{ $t('clientForm.addressLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.description_client" id="description" fluid></InputText>
-        <label for="description"> {{ $t('clientForm.descriptionLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.phone_client" id="phone" fluid></InputText>
-        <label for="phone"> {{ $t('clientForm.phoneLabel') }}</label>
-      </FloatLabel>
-    </template>
-    </CustomTable>
-  </div>
-
-  <div>
-
-    <RemunerationDetails v-if="showDetails && selectedItem" :details-data="selectedItem" @close="handleCloseDetails" />
+      <h2>{{$t('clientList.title')}}</h2>
+      <div class="filters-container">
+          <input type="text" v-model="filterName" :placeholder="$t('clientList.filterNamePlaceholder')" class="filter-input">
+          <input type="text" v-model="filterAddress" :placeholder="$t('clientList.filterAddressPlaceholder')" class="filter-input">
+          <input type="text" v-model="filterEmail" :placeholder="$t('clientList.filterEmailPlaceholder')" class="filter-input">
+          <button class="boton">{{$t('clientList.newClientButton')}}</button>
+      </div>
+      <table class="styled-table">
+          <thead>
+              <tr>
+                  <th>{{$t('clientList.nameColumn')}}</th>
+                  <th>{{$t('clientList.addressColumn')}}</th>
+                  <th>{{$t('clientList.phoneColumn')}}</th>
+                  <th>{{$t('clientList.emailColumn')}}</th>
+                  <th>{{$t('clientList.actionsColumn')}}</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="(contacto, index) in filteredContactos" :key="index">
+                  <td>{{ contacto.nombre }}</td>
+                  <td>{{ contacto.direccion }}</td>
+                  <td>{{ contacto.telefono }}</td>
+                  <td>{{ contacto.email }}</td>
+                  <td>
+                      <button class="action-button delete" @click="eliminar(index)"><span class="material-icons">delete</span></button>
+                      <button class="action-button edit" @click="editar(index)"><span class="material-icons">edit</span></button>
+                      <button class="action-button view" @click="toggleDetails(index)"><span class="material-icons">visibility</span></button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <RemunerationDetails v-if="showDetails && selectedItem" :details-data="selectedItem" @close="handleCloseDetails"/>
   </div>
 </template>
 

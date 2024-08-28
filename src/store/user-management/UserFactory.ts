@@ -14,19 +14,21 @@ interface UserData{
 }
 
 export default class UserFactory{
-    public static functions: UserFactoryFunctions;
+    static #functions: UserFactoryFunctions;
+
+    static get functions(){
+        if(!UserFactory.#functions){
+            UserFactory._createFunctions();
+        }
+        return UserFactory.#functions;
+    }
 
     public static buildUserByRole(name:string,role:string){
         return this.functions[role](name);
     }
-    
     public static async buildUser(url: string,username:string,password:string): Promise<any>{
-        if(!UserFactory.functions){
-            UserFactory._createFunctions();
-        }
         let tokens = await this._getUserJson(url,username,password);
         const decoded: any = jwtDecode(tokens.data.access);
-        console.log(decoded);
         let userdata: UserData = {
             "username": decoded.name,
             "role": decoded.role
@@ -56,7 +58,7 @@ export default class UserFactory{
     }
 
     private static _createFunctions(){
-        UserFactory.functions = {
+        UserFactory.#functions = {
             'admin': (name: string)=>new Admin(name),
             'accounter': (name: string)=>new Accounter(name),
             'humanResources': (name: string)=>new HumanResources(name),

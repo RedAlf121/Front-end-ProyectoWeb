@@ -1,8 +1,8 @@
 {
-    "message":{
+    "message": {
         "test": "Dashboard"
     },
-    "login":{
+    "login": {
         "welcomeMessage": "Welcome back!",
         "loginSession": "Log in to continue",
         "usernamePlaceholder": "Enter your username",
@@ -11,21 +11,21 @@
         "forgotPasswordCaption": "Forgot your password?",
         "forgotPasswordLink": "Click here"
     },
-    "nav":{
-        "projectManager":{
+    "nav": {
+        "projectManager": {
             "client": {
                 "client": "Client",
                 "insert": "Insert @:nav.projectManager.client.client",
                 "manage": "Manage @:nav.projectManager.client.client"
             },
-            "contract":{
+            "contract": {
                 "client": "Contract",
                 "insert": "Insert @:nav.projectManager.contract.contract",
                 "manage": "Manage @:nav.projectManager.contract.contract"
             },
-            "payterm":"Payterm"
+            "payterm": "Payterm"
         },
-        "accounter":{
+        "accounter": {
             "recieve": {
                 "recieve": "Recieve",
                 "actual": "@:nav.accounter.recieve.recieve actual",
@@ -33,13 +33,26 @@
             },
             "remmuneration": "Remmuneration"
         },
-        "humanResources":{
-            "worker":{
+        "humanResources": {
+            "worker": {
                 "worker": "workers",
                 "add": "Add @:nav.humanResources.worker.worker",
                 "manage": "Manage @:nav.humanResources.worker.worker"
-            },
-            "contractForm": {
+            }
+        }
+    },
+    "user": {
+        "legend": "User",
+        "nameLabel": "Name:",
+        "LastnameLabel": "Last Name:",
+        "usernameLabel": "Username:",
+        "passLabel": "Password:",
+        "rolLabel": "Role:",
+        "selectOption": "Select",
+        "saveButton": "Save",
+        "cancelButton": "Cancel"
+    },
+    "contractForm": {
         "legend": "Contract",
         "titleLabel": "Title:",
         "clientLabel": "Client:",
@@ -58,8 +71,8 @@
         "insertClientButton": "Insert new client",
         "submitButton": "Submit",
         "resetButton": "Reset"
-      },
-      "categoryForm": {
+    },
+    "categoryForm": {
         "legend": "Category",
         "workerLabel": "Worker:",
         "hoursLabel": "Number of Hours:",
@@ -125,16 +138,7 @@
         "saveButton": "Save",
         "cancelButton": "Cancel"
     },
-
-
-
-
-
-
-
-
-
-     "receiptForm": {
+    "receiptForm": {
         "title": "Payment Receipt",
         "clientLabel": "Client:",
         "contractLabel": "Contract:",
@@ -163,7 +167,7 @@
         "emailColumn": "Email",
         "actionsColumn": "Actions"
     },
-     "contractList": {
+    "contractList": {
         "title": "Contract List",
         "filterTitlePlaceholder": "Filter by title",
         "filterClientPlaceholder": "Filter by client",
@@ -201,7 +205,7 @@
         "valueColumn": "Value",
         "actionsColumn": "Actions"
     },
-     "workerList": {
+    "workerList": {
         "title": "Worker List",
         "idColumn": "ID",
         "nameColumn": "Name",
@@ -225,7 +229,7 @@
         "totalColumn": "Total to Pay",
         "actionsColumn": "Actions"
     },
-     "remunerationList": {
+    "remunerationList": {
         "title": "Remunerations",
         "filterContractPlaceholder": "Filter by contract",
         "allOption": "All",
@@ -235,27 +239,16 @@
         "totalRemuneratedColumn": "Total Remunerated",
         "actionsColumn": "Actions"
     },
-
-
-
-
-
-
- 
-
-
-   "rrhh": {
+    "rrhh": {
         "insertCategory": "Insert Category",
         "insertWorker": "Insert Worker",
         "workers": "Workers"
-     },
-      "pm": {
+    },
+    "pm": {
         "insertClient": "Insertar Cliente",
         "insertContract": "Insertar Contrato",
-        "contract" : "Contracts",
+        "contract": "Contracts",
         "clients": "Clientes",
         "deadlines": "Plazos"
-    }
-        }
     }
 }

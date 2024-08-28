@@ -90,8 +90,8 @@
 
       <div class="acciones">
         <button type="button" class="boton-seleccion">{{$t('contractForm.insertClientButton')}}</button>
-        <input type="submit" value="{{$t('contractForm.submitButton')}}" class="boton-enviar">
-        <input type="reset" value="{{$t('contractForm.resetButton')}}" class="boton-cancelar">
+        <input type="submit" :value="$t('contractForm.submitButton')" class="boton-enviar">
+        <input type="reset" :value="$t('contractForm.resetButton')" class="boton-cancelar">
       </div>
     </form>
   </div>

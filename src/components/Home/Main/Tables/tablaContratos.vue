@@ -2,10 +2,10 @@
   <div class="table-container">
       <h2>{{$t('contractList.title')}}</h2>
       <div class="filters-container">
-          <input type="text" v-model="filterTitle" placeholder="{{$t('contractList.filterTitlePlaceholder')}}" class="filter-input">
-          <input type="text" v-model="filterClient" placeholder="{{$t('contractList.filterClientPlaceholder')}}" class="filter-input">
-          <input type="text" v-model="filterManager" placeholder="{{$t('contractList.filterManagerPlaceholder')}}" class="filter-input">
-          <input type="text" v-model="filterOffer" placeholder="{{$t('contractList.filterOfferPlaceholder')}}" class="filter-input">
+          <input type="text" v-model="filterTitle" :placeholder="$t('contractList.filterTitlePlaceholder')" class="filter-input">
+          <input type="text" v-model="filterClient" :placeholder="$t('contractList.filterClientPlaceholder')" class="filter-input">
+          <input type="text" v-model="filterManager" :placeholder="$t('contractList.filterManagerPlaceholder')" class="filter-input">
+          <input type="text" v-model="filterOffer" :placeholder="$t('contractList.filterOfferPlaceholder')" class="filter-input">
           <button class="boton">{{$t('contractList.newContractButton')}}</button>
       </div>
       <table class="styled-table">
