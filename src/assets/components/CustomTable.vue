@@ -3,12 +3,12 @@
         <template #content>
             <div v-if="isPending" class="loading">
                 <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+
             </div>
             <DataTable removableSort ref="dt" :globalFilterFields="props.columns.map((c) => c.field)"
                 v-model:filters="filters" filterDisplay="row" v-else-if="isSuccess" :loading="isPending" paginator
                 :value="data" :rows="5" :rowsPerPageOptions="[5, 10, 20, 50]">
                 <template #header>
-                    {{ data }}
                     <div class="custom-table-header">
                         <h1>{{ title }}</h1>
                         <div class="custom-table-header__options">
@@ -96,7 +96,7 @@
         </div>
     </Dialog>
 </template>
-<script setup>
+<script setup lang="ts">
 import Column from 'primevue/column';
 import Card from 'primevue/card';
 import Dialog from 'primevue/dialog';
@@ -314,8 +314,6 @@ const { mutate: mutateDelete } = useMutation({
         toast.add({ severity: 'info', summary: 'Confirmación', detail: 'Elemento eliminado correctamente', life: 5000 });
     },
     onError: (error) => {
-        console.log('eee')
-
         toast.add({ severity: 'error', summary: 'Ha ocurrido un error', detail: error.message, life: 5000 });
     }
 })
