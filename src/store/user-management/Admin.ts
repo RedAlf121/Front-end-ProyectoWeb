@@ -1,6 +1,5 @@
 import User from "./User";
-import DashBoardItem from '../../components/Home/Nav/Items/DashBoardItem.vue';
-import AnotherTestItem from '../../components/Home/Nav/Items/AnotherTestItem.vue';
+import AddUser from '../../components/Home/Nav/Items/Admin/AddUser.vue';
 import UserFactory from "./UserFactory";
 
 export default class Admin extends User{
@@ -10,6 +9,6 @@ export default class Admin extends User{
     protected _buildOptions(): void {
         const options = Object.keys(UserFactory.functions);
         this._options = options.map((key)=>(key!=="admin")? UserFactory.functions[key](this._userName).options : []).flat();
-        this._options;
+        this._options.push(AddUser);
     }
 }

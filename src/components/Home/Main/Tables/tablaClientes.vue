@@ -2,9 +2,9 @@
   <div class="table-container">
       <h2>{{$t('clientList.title')}}</h2>
       <div class="filters-container">
-          <input type="text" v-model="filterName" placeholder="{{$t('clientList.filterNamePlaceholder')}}" class="filter-input">
-          <input type="text" v-model="filterAddress" placeholder="{{$t('clientList.filterAddressPlaceholder')}}" class="filter-input">
-          <input type="text" v-model="filterEmail" placeholder="{{$t('clientList.filterEmailPlaceholder')}}" class="filter-input">
+          <input type="text" v-model="filterName" :placeholder="$t('clientList.filterNamePlaceholder')" class="filter-input">
+          <input type="text" v-model="filterAddress" :placeholder="$t('clientList.filterAddressPlaceholder')" class="filter-input">
+          <input type="text" v-model="filterEmail" :placeholder="$t('clientList.filterEmailPlaceholder')" class="filter-input">
           <button class="boton">{{$t('clientList.newClientButton')}}</button>
       </div>
       <table class="styled-table">

@@ -26,8 +26,8 @@
           </fieldset>
 
           <div class="acciones">
-              <input type="submit" value="{{$t('trainingOfferForm.saveButton')}}" class="boton-enviar">
-              <input type="reset" value="{{$t('trainingOfferForm.cancelButton')}}" class="boton-cancelar">
+              <input type="submit" :value="$t('trainingOfferForm.saveButton')" class="boton-enviar">
+              <input type="reset" :value="$t('trainingOfferForm.cancelButton')" class="boton-cancelar">
           </div>
       </form>
   </div>

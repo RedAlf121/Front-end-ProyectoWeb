@@ -3,11 +3,11 @@
     <div class="modal-mask" @click.self="closeModal">
       <div class="receipt-container">
         <h2>{{$t('receiptForm.title')}}</h2>
-        <p><strong>{{$t('receiptForm.clientLabel')}}</strong> {{ receiptData.client }}</p>
-        <p><strong>{{$t('receiptForm.contractLabel')}}</strong> {{ receiptData.contract }}</p>
-        <p><strong>{{$t('receiptForm.invoiceMonthLabel')}}</strong> {{ receiptData.invoiceMonth }}</p>
+        <p><strong>{{$t('receiptForm.clientLabel')}}</strong> {{$t('receiptData.client')}}</p>
+        <p><strong>{{$t('receiptForm.contractLabel')}}</strong> {{$t('receiptData.contract')}}</p>
+        <p><strong>{{$t('receiptForm.invoiceMonthLabel')}}</strong> {{$t('receiptData.invoiceMonth')}}</p>
         <p><strong>{{$t('receiptForm.paymentDateLabel')}}</strong> {{ formattedDate }}</p>
-        <p><strong>{{$t('receiptForm.amountLabel')}}</strong> {{ receiptData.amount }}</p>
+        <p><strong>{{$t('receiptForm.amountLabel')}}</strong> {{$t('receiptData.amount')}}</p>
         <button class="accept-button" @click="closeModal">{{$t('receiptForm.acceptButton')}}</button>
       </div>
     </div>

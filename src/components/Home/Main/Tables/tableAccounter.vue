@@ -2,9 +2,9 @@
   <div class="table-container">
     <h2>{{$t('invoiceReview.title')}}</h2>
     <div class="filters-container">
-      <input type="text" v-model="filterClient" placeholder="{{$t('invoiceReview.filterClientPlaceholder')}}" class="filter-input">
-      <input type="text" v-model="filterInvoice" placeholder="{{$t('invoiceReview.filterInvoicePlaceholder')}}" class="filter-input">
-      <input type="text" v-model="filterContract" placeholder="{{$t('invoiceReview.filterContractPlaceholder')}}" class="filter-input">
+      <input type="text" v-model="filterClient" :placeholder="$t('invoiceReview.filterClientPlaceholder')" class="filter-input">
+      <input type="text" v-model="filterInvoice" :placeholder="$t('invoiceReview.filterInvoicePlaceholder')" class="filter-input">
+      <input type="text" v-model="filterContract" :placeholder="$t('invoiceReview.filterContractPlaceholder')" class="filter-input">
       <select v-model="filterStatus" class="filter-select">
         <option value="">{{$t('invoiceReview.allOption')}}</option>
         <option value="pendiente">{{$t('invoiceReview.pendingOption')}}</option>
