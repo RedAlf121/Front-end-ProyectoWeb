@@ -1,10 +1,10 @@
 <script setup lang="ts">
     import NavItem from '../../NavItem.vue';
-    import tableAccounter1 from "../../../Main/Tables/accounter/tableAccounter1.vue"
+    import TableMonthlyReceipt from '../../../Main/Tables/accounter/tableMonthlyReceipt.vue';
 </script>
 <template>
-    <NavItem :nextComponent="tableAccounter1">
+    <NavItem :nextComponent="TableMonthlyReceipt">
         <i class="icon ion-calendar"></i>
-		<span>{{$t('message.test')}}</span>
+        <span>{{$t('nav.accounter.recieve.monthly')}}</span>
     </NavItem>
 </template>

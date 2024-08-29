@@ -1,10 +1,10 @@
 <script setup lang="ts">
     import NavItem from '../../NavItem.vue';
-    import tableAccounter from "../../../Main/Tables/accounter/tableAccounter.vue"
+    import TableReceipt from '../../../Main/Tables/accounter/tableReceipt.vue';
 </script>
 <template>
-    <NavItem :nextComponent="tableAccounter">
+    <NavItem :nextComponent="TableReceipt">
         <i class="icon ion-ios-checkmark"></i>
-		<span>{{$t('message.test')}}</span>
+		<span>{{$t('nav.accounter.recieve.actual')}}</span>
     </NavItem>
 </template>

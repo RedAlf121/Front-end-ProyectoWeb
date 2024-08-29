@@ -5,6 +5,6 @@
 <template>
     <NavItem :nextComponent="tablaPlazos">
         <i class="icon ion-clock"></i>
-		<span>{{$t('message.test')}}</span>
+		<span>{{$t('nav.projectManager.payterm')}}</span>
     </NavItem>
 </template>

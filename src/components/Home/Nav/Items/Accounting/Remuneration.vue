@@ -1,10 +1,10 @@
 <script setup lang="ts">
     import NavItem from '../../NavItem.vue';
-    import tableAccounter2 from "../../../Main/Tables/accounter/tableAccounter2.vue"
+    import TableRemmunerations from '../../../Main/Tables/accounter/tableRemmunerations.vue';
 </script>
 <template>
-    <NavItem :nextComponent="tableAccounter2">
+    <NavItem :nextComponent="TableRemmunerations">
         <i class="icon ion-cash"></i>
-		<span>{{$t('message.test')}}</span>
+        <span>{{$t('nav.accounter.remmuneration')}}</span>
     </NavItem>
 </template>
