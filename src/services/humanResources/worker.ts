@@ -23,6 +23,7 @@ export const getWorkers = async () => {
 
 export const addWorker = async (data) => {
   try {
+    data.fk_id_cg = data.fk_id_cg.id_cg;
     //validateClient(data)
     return await sendRequest({ url: `${import.meta.env.VITE_API_URL}/ceta/employee/`, method: 'POST', body: data })
   } catch (e) {

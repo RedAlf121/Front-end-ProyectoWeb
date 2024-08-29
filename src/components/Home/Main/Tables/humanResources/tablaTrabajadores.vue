@@ -1,52 +1,57 @@
 <template>
   <div class="table-container">
     <CustomTable :title="t('workerList.title')" fieldAsID="id_em" fieldAsActive="is_active" :columns="columns"
-      :queryOptions="queryOptions" >
-    <template #info>
-      <FloatLabel>Email</FloatLabel>
-      {{ model.email_em }}
-      <FloatLabel>Address</FloatLabel>
-      {{ model.address_em }}
-      <FloatLabel>Phone</FloatLabel>
-      {{ model.phone_em }}
-      <FloatLabel>Department:</FloatLabel>
-      {{ model.department_em }}
-      <FloatLabel>Account</FloatLabel>
-      {{ model.num_account_em }}
-    </template>
-    <template #form>
-      <FloatLabel>
-        <InputText v-model="model.id_em" id="dni" fluid></InputText>
-        <label for="name"> {{ $t('workerForm.dniLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.name_em" id="name" fluid></InputText>
-        <label for="name"> {{ $t('workerForm.nameLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.address_em" id="address" fluid></InputText>
-        <label for="address"> {{ $t('workerForm.addressLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.phone_em" id="phone" fluid></InputText>
-        <label for="phone"> {{ $t('workerForm.phoneLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.email_em" id="email" fluid></InputText>
-        <label for="email"> {{ $t('workerForm.emailLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.department_em" id="deparment" fluid></InputText>
-        <label for="department"> {{ $t('workerForm.departmentLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <Select v-model="model.num_account_em" id="category" fluid></Select>
-        <label for="category"> {{ $t('workerForm.categoryLabel') }}</label>
-      </FloatLabel>
-    </template>deletePayterm
+      :queryOptions="queryOptions">
+      <template #info>
+        <FloatLabel>Email</FloatLabel>
+        {{ model.email_em }}
+        <FloatLabel>Address</FloatLabel>
+        {{ model.address_em }}
+        <FloatLabel>Phone</FloatLabel>
+        {{ model.phone_em }}
+        <FloatLabel>Department:</FloatLabel>
+        {{ model.department_em }}
+        <FloatLabel>Account</FloatLabel>
+        {{ model.num_account_em }}
+      </template>
+      <template #form>
+        <FloatLabel>
+          <InputText v-model="model.id_em" id="dni" fluid></InputText>
+          <label for="name"> {{ $t('workerForm.dniLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.name_em" id="name" fluid></InputText>
+          <label for="name"> {{ $t('workerForm.nameLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.address_em" id="address" fluid></InputText>
+          <label for="address"> {{ $t('workerForm.addressLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.phone_em" id="phone" fluid></InputText>
+          <label for="phone"> {{ $t('workerForm.phoneLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.email_em" id="email" fluid></InputText>
+          <label for="email"> {{ $t('workerForm.emailLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.department_em" id="deparment" fluid></InputText>
+          <label for="department"> {{ $t('workerForm.departmentLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.num_account_em" id="category" fluid></InputText>
+          <label for="category"> {{ $t('workerForm.categoryLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <Select v-model="model.fk_id_cg" :options="categories.data.value" optionLabel="name_cg" id="category"
+            fluid></Select>
+          <label for="category"> {{ $t('workerForm.categoryLabel') }}</label>
+        </FloatLabel>
+      </template>
     </CustomTable>
   </div>
-
+{{model}}
 </template>
 
 
@@ -57,8 +62,9 @@ import { useWorkers } from '../../../../../composables/humanResources/useWorkers
 import { useI18n } from 'vue-i18n';
 import { addWorker, updateWorker, deleteWorker } from '../../../../../services/humanResources/worker';
 import FloatLabel from 'primevue/floatlabel';
-import InputText  from 'primevue/inputtext';
+import InputText from 'primevue/inputtext';
 import Select from 'primevue/select';
+import { useCategories } from '../../../../../composables/humanResources/useCategories';
 const { t } = useI18n()
 
 const columns = [
@@ -81,7 +87,7 @@ const columns = [
   {
     field: 'phone_em',
     header: t('deadlineList.statusColumn')
-  },  
+  },
   {
     field: 'is_active',
     header: 'Activo'
@@ -91,16 +97,16 @@ const columns = [
 //
 
 const model = ref({
-    category_name: "",
-    id_em: "",
-    fk_id_cg: {},
-    name_em: "",
-    address_em: "",
-    phone_em: "",
-    email_em: "",
-    department_em: "",
-    num_account_em: "",
-    is_active: true
+  category_name: "",
+  id_em: "",
+  fk_id_cg: {},
+  name_em: "",
+  address_em: "",
+  phone_em: "",
+  email_em: "",
+  department_em: "",
+  num_account_em: "",
+  is_active: true
 })
 
 const queryOptions = {
@@ -111,7 +117,7 @@ const queryOptions = {
   model: model
 }
 
-
+const categories = useCategories();
 </script>
 
 
