@@ -6,7 +6,7 @@
 </script>
 <template>
     <NavItem :nextComponent="Insertar_Usuario">
-        <i class="icon ion-ios-home-outline"></i>
+        <i class="icon ion-person-add"></i>
 		<span>{{$t('Usuario')}}</span>
     </NavItem>
 </template> 

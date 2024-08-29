@@ -2,7 +2,7 @@
     <Card style="width: 90%; overflow: scroll">
         <template #content>
             <div v-if="isPending" class="loading">
-                <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+                <ProgressSpinner class="pi pi-spin pi-spinner" style="font-size: 2rem"></ProgressSpinner>
 
             </div>
             <DataTable removableSort ref="dt" :globalFilterFields="props.columns.map((c) => c.field)"
@@ -49,8 +49,8 @@
                             <i v-if="props.queryOptions.deleteFunction && !props.fieldAsActive" v-tooltip="'Eliminar'"
                                 @click="deleteElement($event, slotProps.data)" class="pi pi-trash" />
 
-                            <i v-if="props.queryOptions.updateFunction && slotProps.data[props.fieldAsActive] == true"
-                                v-tooltip="'Desactivar'" @click="desactivateElement($event, slotProps.data)"
+                            <i v-if="props.queryOptions.deleteFunction && slotProps.data[props.fieldAsActive] == true"
+                                v-tooltip="'Desactivar'" @click="deleteElement($event, slotProps.data)"
                                 class="pi pi-trash" />
 
                             <i v-if="props.queryOptions.updateFunction && slotProps.data[props.fieldAsActive] == false"
@@ -112,6 +112,7 @@ import { useToast } from "primevue/usetoast";
 import { useMutation } from '@tanstack/vue-query';
 import Rating from 'primevue/rating';
 import Menu from 'primevue/menu';
+import ProgressSpinner from 'primevue/progressspinner';
 
 const props = defineProps({
     title: String,

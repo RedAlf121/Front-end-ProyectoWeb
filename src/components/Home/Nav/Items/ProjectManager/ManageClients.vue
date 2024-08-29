@@ -7,7 +7,7 @@
 
 <template>
     <NavItem :nextComponent="tablaClientes">
-        <i class="icon ion-ios-home-outline"></i>
+        <i class="icon ion-android-contacts"></i>
 		<span>{{$t('Clientes')}}</span>
     </NavItem>
 </template>

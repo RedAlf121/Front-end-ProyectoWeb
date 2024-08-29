@@ -4,7 +4,7 @@
 </script>
 <template>
     <NavItem :nextComponent="tableAccounter2">
-        <i class="icon ion-ios-home-outline"></i>
+        <i class="icon ion-cash"></i>
 		<span>{{$t('message.test')}}</span>
     </NavItem>
 </template>

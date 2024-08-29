@@ -6,7 +6,7 @@
 </script>
 <template>
     <NavItem :nextComponent="Insertar_Categoria">
-        <i class="icon ion-ios-home-outline"></i>
+        <i class="icon ion-ios-folder"></i>
 		<span>{{$t('rrhh.insertCategory')}}</span>
     </NavItem>
 </template> 

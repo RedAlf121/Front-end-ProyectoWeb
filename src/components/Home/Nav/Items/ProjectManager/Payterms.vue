@@ -4,7 +4,7 @@
 </script>
 <template>
     <NavItem :nextComponent="tablaPlazos">
-        <i class="icon ion-ios-home-outline"></i>
+        <i class="icon ion-clock"></i>
 		<span>{{$t('message.test')}}</span>
     </NavItem>
 </template>
