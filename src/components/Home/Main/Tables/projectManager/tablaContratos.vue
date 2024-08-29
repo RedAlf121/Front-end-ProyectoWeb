@@ -1,36 +1,64 @@
 <template>
   <div class="table-container">
     <CustomTable :title="t('contractForm.legend')" fieldAsID="id_ct" fieldAsActive="is_active" :columns="columns"
-      :queryOptions="queryOptions" >
-    <template #info>
-      <p>Description:</p>
-      {{ model.description_ct }}
-      <p>Currency:</p>
-      {{ model.currency_ct }}
-      <p>Profit margin:</p>
-      {{ model.profit_margin }}
-    </template>
-    <template #form>
-      <FloatLabel>
-        <InputText v-model="model.title_ct" id="name" fluid></InputText>
-        <label for="name"> {{ $t('contractForm.legend') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.title_ct" id="address" fluid></InputText>
-        <label for="address"> {{ $t('contractForm.addressLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.title_ct" id="description" fluid></InputText>
-        <label for="description"> {{ $t('contractForm.descriptionLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.title_ct" id="phone" fluid></InputText>
-        <label for="phone"> {{ $t('contractForm.phoneLabel') }}</label>
-      </FloatLabel>
-    </template>
+      :queryOptions="queryOptions">
+      <template #info>
+        <p>Description:</p>
+        {{ model.description_ct }}
+        <p>Currency:</p>
+        {{ model.currency_ct }}
+        <p>Profit margin:</p>
+        {{ model.profit_margin }}
+      </template>
+      <template #form>
+        <FloatLabel>
+          <InputText v-model="model.title_ct" id="name" fluid></InputText>
+          <label for="name"> {{ $t('contractForm.legend') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.manager_name" id="address" fluid></InputText>
+          <label for="address"> {{ $t('contractForm.addressLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.client_name" id="description" fluid></InputText>
+          <label for="description"> {{ $t('contractForm.descriptionLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.start_ct" fluid></InputText>
+          <label for="phone"> {{ $t('contractForm.phoneLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.end_ct" fluid></InputText>
+          <label for="phone"> {{ $t('contractForm.phoneLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.resolution_ct" fluid></InputText>
+          <label for="phone"> {{ $t('contractForm.phoneLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.description_ct" fluid></InputText>
+          <label for="phone"> {{ $t('contractForm.phoneLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.work_area_ct" fluid></InputText>
+          <label for="phone"> {{ $t('contractForm.phoneLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.profit_margin" fluid></InputText>
+          <label for="phone"> {{ $t('contractForm.phoneLabel') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.currency_ct" fluid></InputText>
+          <label for="phone"> {{ $t('contractForm.phoneLabel') }}</label>
+        </FloatLabel>
+        
+        <Select v-model="model.fk_id_client" :options="clients.data.value" optionLabel="name_client" class="w-full md:w-56"/>
+        <Select v-model="model.manager_ct" :options="employees" optionLabel="name_em" class="w-full md:w-56"/>
+      </template>
     </CustomTable>
   </div>
 
+  <p>{{ clients.data }}</p>
 </template>
 
 
@@ -42,6 +70,8 @@ import { useI18n } from 'vue-i18n';
 import { addContract, deleteContract, updateContract } from '../../../../../services/projectManager/contract';
 import InputText from 'primevue/inputtext';
 import FloatLabel from 'primevue/floatlabel';
+import { sendRequest } from '../../../../../utils/sendRequest';
+import { useClients } from '../../../../../composables/projectManager/useClients';
 const { t } = useI18n()
 
 const columns = [
@@ -82,30 +112,36 @@ const columns = [
 //
 
 const model = ref({
-    title_ct: "",
-    manager_name: "",
-    client_name: "",
-    manager_ct: {},
-    fk_id_client: {},
-    start_ct: "",
-    end_ct: "",
-    resolution_ct: "",
-    description_ct: "",
-    work_area_ct: "",
-    profit_margin: "",
-    currency_ct: "",
-    is_active: true
+  title_ct: "",
+  manager_name: "",
+  client_name: "",
+  manager_ct: {},
+  fk_id_client: {},
+  start_ct: "",
+  end_ct: "",
+  resolution_ct: "",
+  description_ct: "",
+  work_area_ct: "",
+  profit_margin: "",
+  currency_ct: "",
+  is_active: true
 })
 
 const queryOptions = {
   queryFunction: useContract,
-  addFunction:addContract,
+  addFunction: addContract,
   updateFunction: updateContract,
   deleteFunction: deleteContract,
   model: model
 }
 
-
+const clients = useClients();
+const employees = ref([]);
+(async () => {
+  employees.value = await sendRequest({
+    url: '/ceta/employee'
+  })
+})()
 </script>
 
 
