@@ -36,10 +36,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import CustomTable from '../../../../assets/components/CustomTable.vue';
-import { useContract } from '../../../../composables/projectManager/useContracts';
+import CustomTable from '../../../../../assets/components/CustomTable.vue';
+import { useContract } from '../../../../../composables/projectManager/useContracts';
 import { useI18n } from 'vue-i18n';
-import { addContract, deleteContract, updateContract } from '../../../../services/projectManager/contract';
+import { addContract, deleteContract, updateContract } from '../../../../../services/projectManager/contract';
 import InputText from 'primevue/inputtext';
 import FloatLabel from 'primevue/floatlabel';
 const { t } = useI18n()

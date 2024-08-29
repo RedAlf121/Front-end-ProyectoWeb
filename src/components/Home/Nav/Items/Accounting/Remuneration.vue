@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import NavItem from '../../NavItem.vue';
-    import tableAccounter2 from "../../../Main/Tables/tableAccounter2.vue"
+    import tableAccounter2 from "../../../Main/Tables/accounter/tableAccounter2.vue"
 </script>
 <template>
     <NavItem :nextComponent="tableAccounter2">

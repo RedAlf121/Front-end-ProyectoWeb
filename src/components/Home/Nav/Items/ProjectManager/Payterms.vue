@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import NavItem from '../../NavItem.vue';
-    import tablaPlazos from "../../../Main/Tables/tablaPlazos.vue"
+    import tablaPlazos from "../../../Main/Tables/projectManager/tablaPlazos.vue"
 </script>
 <template>
     <NavItem :nextComponent="tablaPlazos">

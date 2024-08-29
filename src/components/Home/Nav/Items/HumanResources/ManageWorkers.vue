@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import NavItem from '../../NavItem.vue';
-    import tablaTrabajadores from "../../../Main/Tables/tablaTrabajadores.vue";
+    import tablaTrabajadores from "../../../Main/Tables/humanResources/tablaTrabajadores.vue";
 </script>
 
 <template>

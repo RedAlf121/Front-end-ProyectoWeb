@@ -1,28 +1,17 @@
 <template>
   <div class="table-container">
-    <CustomTable :title="t('clientList.title')" fieldAsID="id_client" fieldAsActive="is_active" :columns="columns"
+    <CustomTable :title="t('categoryForm.legend')" fieldAsID="id_cg" fieldAsActive="is_active" :columns="columns"
       :queryOptions="queryOptions" >
-    <template #info>
-      {{ model.description_client }}
-    </template>
     <template #form>
       <FloatLabel>
-        <InputText v-model="model.name_client" id="name" fluid></InputText>
-        <label for="name"> {{ $t('clientForm.nameLabel') }}</label>
+        <InputText v-model="model.name_cg" id="name" fluid></InputText>
+        <label for="name"> {{ $t('categoryForm.name') }}</label>
       </FloatLabel>
       <FloatLabel>
-        <InputText v-model="model.address_client" id="address" fluid></InputText>
-        <label for="address"> {{ $t('clientForm.addressLabel') }}</label>
+        <InputNumber v-model="model.hourly_wage_cg" id="wage" showButtons :min=0 fluid></InputNumber>
+        <label for="name"> {{ $t('categoryForm.hoursLabel') }}</label>
       </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.phone_client" id="phone" fluid></InputText>
-        <label for="phone"> {{ $t('clientForm.phoneLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <Textarea v-model="model.description_client" id="description" fluid></Textarea>
-        <label for="phone"> {{ $t('clientForm.descriptionLabel') }}</label>
-      </FloatLabel>
-    </template>
+    </template>deletePayterm
     </CustomTable>
   </div>
 
@@ -31,31 +20,23 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import CustomTable from '../../../../assets/components/CustomTable.vue';
-import { useClients } from '../../../../composables/projectManager/useClients';
+import CustomTable from '../../../../../assets/components/CustomTable.vue';
 import { useI18n } from 'vue-i18n';
-import { addClient, deleteClient, updateClient } from '../../../../services/projectManager/client';
-import InputText from 'primevue/inputtext';
 import FloatLabel from 'primevue/floatlabel';
-import Textarea from 'primevue/textarea';
+import InputText  from 'primevue/inputtext';
+import InputNumber from 'primevue/inputnumber';
+import { useCategories } from '../../../../../composables/humanResources/useCategories';
+import { addCategory, deleteCategory, updateCategory } from '../../../../../services/humanResources/category';
 const { t } = useI18n()
 
 const columns = [
   {
-    field: 'name_client',
-    header: t('clientList.nameColumn')
+    field: 'name_cg',
+    header: t('workerList.categoryColumn')
   },
   {
-    field: 'address_client',
-    header: 'Dirección'
-  },
-  {
-    field: 'phone_client',
-    header: 'Teléfono'
-  },
-  {
-    field: 'description_client',
-    header: 'Descripción'
+    field: 'hourly_wage_cg',
+    header: t('workerList.idColumn')
   },
   {
     field: 'is_active',
@@ -66,18 +47,16 @@ const columns = [
 //
 
 const model = ref({
-  name_client: '',
-  address_client: '',
-  phone_client: '',
-  description_client: '',
-  is_active: true
+    name_cg: "",
+    hourly_wage_cg: 0,
+    is_active: true
 })
 
 const queryOptions = {
-  queryFunction: useClients,
-  addFunction:addClient,
-  updateFunction: updateClient,
-  deleteFunction: deleteClient,
+  queryFunction: useCategories,
+  addFunction: addCategory,
+  updateFunction: updateCategory,
+  deleteFunction: deleteCategory,
   model: model
 }
 

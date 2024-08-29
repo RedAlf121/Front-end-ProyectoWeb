@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import NavItem from '../../NavItem.vue';
-    import tablaClientes from "../../../Main/Tables/tablaClientes.vue"
+    import tablaClientes from "../../../Main/Tables/projectManager/tablaClientes.vue"
 
 </script>
 

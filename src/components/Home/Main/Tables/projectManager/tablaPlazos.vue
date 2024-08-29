@@ -36,13 +36,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import CustomTable from '../../../../assets/components/CustomTable.vue';
-import { usePayterm } from '../../../../composables/projectManager/usePayterm';
+import CustomTable from '../../../../../assets/components/CustomTable.vue';
+import { usePayterm } from '../../../../../composables/projectManager/usePayterm';
 import { useI18n } from 'vue-i18n';
-import { addPayterm, deletePayterm, updatePayterm } from '../../../../services/projectManager/payterm';
+import { addPayterm, deletePayterm, updatePayterm } from '../../../../../services/projectManager/payterm';
 import InputText from 'primevue/inputtext';
 import FloatLabel from 'primevue/floatlabel';
-import { InputNumber } from 'ant-design-vue';
+import InputNumber  from 'primevue/inputnumber';
 const { t } = useI18n()
 
 const columns = [

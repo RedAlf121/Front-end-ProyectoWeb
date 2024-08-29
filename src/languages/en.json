@@ -75,9 +75,10 @@
     "categoryForm": {
         "legend": "Category",
         "workerLabel": "Worker:",
-        "hoursLabel": "Number of Hours:",
+        "hoursLabel": "Wage per hours:",
         "saveButton": "Save",
-        "cancelButton": "Cancel"
+        "cancelButton": "Cancel",
+        "name": "Name"
     },
     "clientForm": {
         "legend": "Client",
@@ -252,12 +253,11 @@
         "deadlines": "Plazos"
     },
     "header": {
-        "accountSettings": "Configuración de la Cuenta",
-        "signOut": "Cerrar Sesión",
-        "language": "Idioma",
-        "spanish": "Español",
-        "english": "Inglés"
+        "accountSettings": "Account Settings",
+        "signOut": "Sign Out",
+        "language": "Language",
+        "spanish": "Spanish",
+        "english": "English"
     }
-
 
 }
