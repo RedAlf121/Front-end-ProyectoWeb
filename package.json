@@ -9,8 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@primevue/core": "^4.0.5",
     "@primevue/themes": "^4.0.5",
     "@tanstack/vue-query": "^5.52.0",
+    "axios": "^1.7.5",
+    "jwt-decode": "^4.0.0",
     "pinia": "^2.1.7",
     "primeicons": "^7.0.0",
     "primevue": "^4.0.5",
