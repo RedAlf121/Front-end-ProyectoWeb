@@ -52,8 +52,8 @@
           <label for="phone"> {{ $t('contractForm.phoneLabel') }}</label>
         </FloatLabel>
         
-        <Select v-model="model.fk_id_client" :options="clients.data.value" optionLabel="name_client" class="w-full md:w-56"/>
-        <Select v-model="model.manager_ct" :options="employees" optionLabel="name_em" class="w-full md:w-56"/>
+        <Select v-model="model.fk_id_client" :options="clients.data.value" optionLabel="name_client" class="w-full md:w-56"></Select>
+        <Select v-model="model.manager_ct" :options="employees" option-label="name_em" class="w-full md:w-56"></Select>
       </template>
     </CustomTable>
   </div>
@@ -72,6 +72,7 @@ import InputText from 'primevue/inputtext';
 import FloatLabel from 'primevue/floatlabel';
 import { sendRequest } from '../../../../../utils/sendRequest';
 import { useClients } from '../../../../../composables/projectManager/useClients';
+import Select from 'primevue/select';
 const { t } = useI18n()
 
 const columns = [

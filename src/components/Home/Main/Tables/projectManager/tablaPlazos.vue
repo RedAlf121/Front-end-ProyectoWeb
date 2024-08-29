@@ -1,34 +1,50 @@
 <template>
   <div class="table-container">
     <CustomTable :title="t('deadlineList.title')" fieldAsID="id_payterm" fieldAsActive="is_active" :columns="columns"
-      :queryOptions="queryOptions" >
-    <template #info>
-      <p>Description:</p>
-      {{ model.fk_id_ct.title_ct }}
-      <p>Currency:</p>
-      {{ model.fk_id_ct.manager_ct.name_em }}
-      <p>Profit margin:</p>
-      {{ model.fk_id_ct.fk_id_client.name_client }}
-    </template>
-    <template #form>
-      <FloatLabel>
-        <InputText v-model="model.fk_id_ct" id="name" fluid></InputText>
-        <label for="name"> {{ $t('deadlineList.title') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputNumber v-model="model.due_month_payterm" id="address" showButtons :min=1 :max=12 fluid></InputNumber>
-        <label for="address"> {{ $t('deadlineList.monthColumn') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputNumber v-model="model.due_year_payterm" id="description" showButtons :min="new Date().getFullYear()" fluid></InputNumber>
-        <label fInputor="description"> {{ $t('deadlineList.yearColumn') }}</label>
-      </FloatLabel>
-      <FloatLabel>
-        <InputText v-model="model.deliver" id="phone" fluid></InputText>
-        <label for="phone"> {{ $t('deadlineForm.deliveryLabel') }}</label>
-      </FloatLabel>
-    </template>
+      :queryOptions="queryOptions">
+      <template #info>
+        <p>Description:</p>
+        {{ model.fk_id_ct.title_ct }}
+        <p>Currency:</p>
+        {{ model.fk_id_ct.manager_ct.name_em }}
+        <p>Profit margin:</p>
+        {{ model.fk_id_ct.fk_id_client.name_client }}
+      </template>
+      <template #form>
+        <FloatLabel>
+          <InputText v-model="model.fk_id_ct.title_ct" id="name" fluid></InputText>
+          <label for="name"> {{ $t('deadlineList.title') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputNumber v-model="model.due_month_payterm" id="address" showButtons :min=1 :max=12 fluid></InputNumber>
+          <label for="address"> {{ $t('deadlineList.monthColumn') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputNumber v-model="model.due_year_payterm" id="description" showButtons :min="new Date().getFullYear()"
+            fluid></InputNumber>
+          <label fInputor="description"> {{ $t('deadlineList.yearColumn') }}</label>
+        </FloatLabel>
+        <FloatLabel>
+          <InputText v-model="model.deliver" id="phone" fluid></InputText>
+          <label for="phone"> {{ $t('deadlineForm.deliveryLabel') }}</label>
+        </FloatLabel>
+
+        <div>
+          <ToggleSwitch v-model="model.is_billed" />
+          <label for="">Is billed</label>
+        </div>
+
+        <div>
+          <ToggleSwitch v-model="model.is_active" />
+          <label for="">Is active</label>
+        </div>
+
+        <Select v-model="model.fk_id_ct" :options="contracts.data.value" optionLabel="title_ct"
+          class="w-full md:w-56"></Select>
+      </template>
     </CustomTable>
+
+    {{ model }}
   </div>
 
 </template>
@@ -42,7 +58,10 @@ import { useI18n } from 'vue-i18n';
 import { addPayterm, deletePayterm, updatePayterm } from '../../../../../services/projectManager/payterm';
 import InputText from 'primevue/inputtext';
 import FloatLabel from 'primevue/floatlabel';
-import InputNumber  from 'primevue/inputnumber';
+import InputNumber from 'primevue/inputnumber';
+import { useContract } from '../../../../../composables/projectManager/useContracts';
+import Select from 'primevue/select';
+import ToggleSwitch from 'primevue/toggleswitch';
 const { t } = useI18n()
 
 const columns = [
@@ -75,23 +94,24 @@ const columns = [
 //
 
 const model = ref({
-    contract_name: "",
-    fk_id_ct: {},
-    due_month_payterm: 0,
-    due_year_payterm: 0,
-    deliver: "",
-    is_billed: false,
-    is_active: true
+  contract_name: "",
+  fk_id_ct: {},
+  due_month_payterm: 0,
+  due_year_payterm: 0,
+  deliver: "",
+  is_billed: false,
+  is_active: true
 })
 
 const queryOptions = {
   queryFunction: usePayterm,
-  addFunction:addPayterm,
+  addFunction: addPayterm,
   updateFunction: updatePayterm,
   deleteFunction: deletePayterm,
   model: model
 }
 
+const contracts = useContract();
 
 </script>
 

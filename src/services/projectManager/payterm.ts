@@ -20,9 +20,12 @@ export const getPayterms = async () => {
 
 export const addPayterm = async (data) => {
     try {
+        data.contract_name = data.fk_id_ct.title_ct
+        data.fk_id_ct = data.fk_id_ct.id_ct
         //validateClient(data)
         return await sendRequest({ url: `${import.meta.env.VITE_API_URL}/ceta/payterm/`, method: 'POST', body: data })
     } catch (e) {
+      console.log(e.message)
         if (e instanceof HttpError)
             throw new HttpError(e.message, e.statusCode)
         throw new Error(e.message)
