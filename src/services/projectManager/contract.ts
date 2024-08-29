@@ -27,6 +27,9 @@ export const getContracts = async () => {
 
 export const addContract = async (data) => {
   try {
+
+    data.fk_id_client = data.fk_id_client.id_client;
+    data.manager_ct = data.manager_ct.id_em;
     //validateClient(data)
     return await sendRequest({ url: `${import.meta.env.VITE_API_URL}/ceta/contract/`, method: 'POST', body: data })
   } catch (e) {

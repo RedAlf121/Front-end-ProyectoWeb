@@ -58,7 +58,7 @@
     </CustomTable>
   </div>
 
-  <p>{{ clients.data }}</p>
+  <p>{{ model }}</p>
 </template>
 
 
