@@ -3,8 +3,7 @@
     <CustomTable :title="t('clientList.title')" fieldAsID="id_client" fieldAsActive="is_active" :columns="columns"
       :queryOptions="queryOptions" >
     <template #info>
-       {{ model }}
-       Aqui darle el formato de la info
+      {{ model.description_client }}
     </template>
     <template #form>
       <FloatLabel>
@@ -12,20 +11,16 @@
         <label for="name"> {{ $t('clientForm.nameLabel') }}</label>
       </FloatLabel>
       <FloatLabel>
-        <InputText v-model="model.email_client" id="email" fluid></InputText>
-        <label for="email"> {{ $t('clientForm.emailLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
         <InputText v-model="model.address_client" id="address" fluid></InputText>
         <label for="address"> {{ $t('clientForm.addressLabel') }}</label>
       </FloatLabel>
       <FloatLabel>
-        <InputText v-model="model.description_client" id="description" fluid></InputText>
-        <label for="description"> {{ $t('clientForm.descriptionLabel') }}</label>
-      </FloatLabel>
-      <FloatLabel>
         <InputText v-model="model.phone_client" id="phone" fluid></InputText>
         <label for="phone"> {{ $t('clientForm.phoneLabel') }}</label>
+      </FloatLabel>
+      <FloatLabel>
+        <Textarea v-model="model.description_client" id="description" fluid></Textarea>
+        <label for="phone"> {{ $t('clientForm.descriptionLabel') }}</label>
       </FloatLabel>
     </template>
     </CustomTable>
@@ -35,23 +30,20 @@
 
 
 <script setup lang="ts">
-import RemunerationDetails from './RemunerationDetails.vue';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import CustomTable from '../../../../assets/components/CustomTable.vue';
-import { useClients } from '../../../../composables/useClients';
+import { useClients } from '../../../../composables/projectManager/useClients';
 import { useI18n } from 'vue-i18n';
-import { addClient, updateClient } from '../../../../services/client';
+import { addClient, deleteClient, updateClient } from '../../../../services/projectManager/client';
 import InputText from 'primevue/inputtext';
 import FloatLabel from 'primevue/floatlabel';
+import Textarea from 'primevue/textarea';
 const { t } = useI18n()
 
 const columns = [
   {
     field: 'name_client',
     header: t('clientList.nameColumn')
-  }, {
-    field: 'email_client',
-    header: 'Email'
   },
   {
     field: 'address_client',
@@ -78,7 +70,6 @@ const model = ref({
   address_client: '',
   phone_client: '',
   description_client: '',
-  email_client:'',
   is_active: true
 })
 
@@ -86,49 +77,9 @@ const queryOptions = {
   queryFunction: useClients,
   addFunction:addClient,
   updateFunction: updateClient,
+  deleteFunction: deleteClient,
   model: model
 }
-
-
-const filterName = ref<string>('');
-const filterAddress = ref<string>('');
-const filterPhone = ref<string>('');
-const filterEmail = ref<string>('');
-const selectedItem = ref<{ nombre: string; direccion: string; telefono: string; email: string; } | null>(null);
-const showDetails = ref<boolean>(false);
-
-const filteredContactos = computed(() => {
-  let filtered = [...contactos.value];
-  if (filterName.value) {
-    filtered = filtered.filter(contacto => contacto.nombre.toLowerCase().includes(filterName.value.toLowerCase()));
-  }
-  if (filterAddress.value) {
-    filtered = filtered.filter(contacto => contacto.direccion.toLowerCase().includes(filterAddress.value.toLowerCase()));
-  }
-  if (filterPhone.value) {
-    filtered = filtered.filter(contacto => contacto.telefono.includes(filterPhone.value));
-  }
-  if (filterEmail.value) {
-    filtered = filtered.filter(contacto => contacto.email.toLowerCase().includes(filterEmail.value.toLowerCase()));
-  }
-  return filtered;
-});
-
-function toggleDetails(index: number): void {
-  const contacto = contactos.value[index];
-  if (selectedItem.value && selectedItem.value.nombre === contacto.nombre) {
-    selectedItem.value = null;
-    showDetails.value = false;
-  } else {
-    selectedItem.value = contacto;
-    showDetails.value = true;
-  }
-}
-
-
-
-
-
 
 
 </script>

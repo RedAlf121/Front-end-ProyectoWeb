@@ -1,5 +1,5 @@
-import HttpError from "../utils/HttpError"
-import { sendRequest } from "../utils/sendRequest"
+import HttpError from "../../utils/HttpError"
+import { sendRequest } from "../../utils/sendRequest"
 
 export const getClients = async () => {
   return await sendRequest({ url: `${import.meta.env.VITE_API_URL}/ceta/client/` })

@@ -1,185 +1,194 @@
 <template>
   <div class="table-container">
-      <h2>{{$t('contractList.title')}}</h2>
-      <div class="filters-container">
-          <input type="text" v-model="filterTitle" :placeholder="$t('contractList.filterTitlePlaceholder')" class="filter-input">
-          <input type="text" v-model="filterClient" :placeholder="$t('contractList.filterClientPlaceholder')" class="filter-input">
-          <input type="text" v-model="filterManager" :placeholder="$t('contractList.filterManagerPlaceholder')" class="filter-input">
-          <input type="text" v-model="filterOffer" :placeholder="$t('contractList.filterOfferPlaceholder')" class="filter-input">
-          <button class="boton">{{$t('contractList.newContractButton')}}</button>
-      </div>
-      <table class="styled-table">
-          <thead>
-              <tr>
-                  <th>{{$t('contractList.titleColumn')}}</th>
-                  <th>{{$t('contractList.clientColumn')}}</th>
-                  <th>{{$t('contractList.managerColumn')}}</th>
-                  <th>{{$t('contractList.startDateColumn')}}</th>
-                  <th>{{$t('contractList.endDateColumn')}}</th>
-                  <th>{{$t('contractList.offerColumn')}}</th>
-                  <th>{{$t('contractList.actionsColumn')}}</th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr v-for="(proyecto, index) in filteredProyectos" :key="index">
-                  <td>{{ proyecto.titulo }}</td>
-                  <td>{{ proyecto.cliente }}</td>
-                  <td>{{ proyecto.gestor }}</td>
-                  <td>{{ proyecto.fechaInicio }}</td>
-                  <td>{{ proyecto.fechaFin }}</td>
-                  <td>{{ proyecto.oferta }}</td>
-                  <td>
-                      <button class="action-button delete" @click="eliminar(index)"><span class="material-icons">delete</span></button>
-                      <button class="action-button edit" @click="editar(index)"><span class="material-icons">edit</span></button>
-                      <button class="action-button view" @click="toggleDetails(index)"><span class="material-icons">visibility</span></button>
-                  </td>
-              </tr>
-          </tbody>
-      </table>
-      <RemunerationDetails v-if="showDetails && selectedItem" :details-data="selectedItem" @close="handleCloseDetails"/>
+    <CustomTable :title="t('contractForm.legend')" fieldAsID="id_ct" fieldAsActive="is_active" :columns="columns"
+      :queryOptions="queryOptions" >
+    <template #info>
+      <p>Description:</p>
+      {{ model.description_ct }}
+      <p>Currency:</p>
+      {{ model.currency_ct }}
+      <p>Profit margin:</p>
+      {{ model.profit_margin }}
+    </template>
+    <template #form>
+      <FloatLabel>
+        <InputText v-model="model.title_ct" id="name" fluid></InputText>
+        <label for="name"> {{ $t('contractForm.legend') }}</label>
+      </FloatLabel>
+      <FloatLabel>
+        <InputText v-model="model.title_ct" id="address" fluid></InputText>
+        <label for="address"> {{ $t('contractForm.addressLabel') }}</label>
+      </FloatLabel>
+      <FloatLabel>
+        <InputText v-model="model.title_ct" id="description" fluid></InputText>
+        <label for="description"> {{ $t('contractForm.descriptionLabel') }}</label>
+      </FloatLabel>
+      <FloatLabel>
+        <InputText v-model="model.title_ct" id="phone" fluid></InputText>
+        <label for="phone"> {{ $t('contractForm.phoneLabel') }}</label>
+      </FloatLabel>
+    </template>
+    </CustomTable>
   </div>
+
 </template>
 
-  
-  <script setup lang="ts">
-  import RemunerationDetails from './RemunerationDetails.vue';
-  import { ref, computed } from 'vue';
-  
-  const proyectos = ref<{ titulo: string; cliente: string; gestor: string; fechaInicio: string; fechaFin: string; oferta: string; }[]>([
-    { titulo: 'Proyecto A', cliente: 'Cliente 1', gestor: 'Gestor 1', fechaInicio: '2024-01-01', fechaFin: '2024-06-30', oferta: 'Oferta 1' },
-    { titulo: 'Proyecto B', cliente: 'Cliente 2', gestor: 'Gestor 2', fechaInicio: '2024-02-01', fechaFin: '2024-07-31', oferta: 'Oferta 2' },
-    // Más datos...
-  ]);
-  
-  const filterTitle = ref<string>('');
-  const filterClient = ref<string>('');
-  const filterManager = ref<string>('');
-  const filterStartDate = ref<string>('');
-  const filterEndDate = ref<string>('');
-  const filterOffer = ref<string>('');
-  const selectedItem = ref<{ titulo: string; cliente: string; gestor: string; fechaInicio: string; fechaFin: string; oferta: string; } | null>(null);
-  const showDetails = ref<boolean>(false);
-  
-  const filteredProyectos = computed(() => {
-    let filtered = [...proyectos.value];
-    if (filterTitle.value) {
-      filtered = filtered.filter(proyecto => proyecto.titulo.toLowerCase().includes(filterTitle.value.toLowerCase()));
-    }
-    if (filterClient.value) {
-      filtered = filtered.filter(proyecto => proyecto.cliente.toLowerCase().includes(filterClient.value.toLowerCase()));
-    }
-    if (filterManager.value) {
-      filtered = filtered.filter(proyecto => proyecto.gestor.toLowerCase().includes(filterManager.value.toLowerCase()));
-    }
-    if (filterStartDate.value) {
-      filtered = filtered.filter(proyecto => proyecto.fechaInicio >= filterStartDate.value);
-    }
-    if (filterEndDate.value) {
-      filtered = filtered.filter(proyecto => proyecto.fechaFin <= filterEndDate.value);
-    }
-    if (filterOffer.value) {
-      filtered = filtered.filter(proyecto => proyecto.oferta.toLowerCase().includes(filterOffer.value.toLowerCase()));
-    }
-    return filtered;
-  });
-  
-  function toggleDetails(index: number): void {
-    const proyecto = proyectos.value[index];
-    if (selectedItem.value && selectedItem.value.titulo === proyecto.titulo) {
-      selectedItem.value = null;
-      showDetails.value = false;
-    } else {
-      selectedItem.value = proyecto;
-      showDetails.value = true;
-    }
-  }
-  
-  function handleCloseDetails(): void {
-    showDetails.value = false;
-    selectedItem.value = null;
-  }
-  
-  function editar(index: number): void {
-    // Implementa la lógica de edición aquí
-  }
-  
-  function eliminar(index: number): void {
-    proyectos.value.splice(index, 1);
-  }
-  </script>
-  
-  
-  <style scoped>
-  .table-container {
-    margin-bottom: 2rem;
-    width: 80%;
-    margin: 0 auto; /* Centramos el contenedor de la tabla */
-  }
-  
-  .filters-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-  }
-  
-  .filter-input,.filter-select ,.boton{
-    flex-grow: 1; /* Hace que los inputs crezcan para ocupar el espacio disponible */
-    margin-right: 0.5rem; /* Espacio entre los inputs */
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  .boton{
-    background-color: #007bff;
-    color: white;
-  }
 
-  .styled-table {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0 4px 6px rgba(0, 0, 0.1);
-  }
-  
-  .styled-table th,.styled-table td {
-    text-align: left;
-    padding: 0.75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6;
-  }
-  
-  .styled-table tr:nth-child(even) {
-    background-color: rgb(215, 225, 243);
-  }
-  
-  .styled-table th {
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .action-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-  }
-  
-  .delete {
-    color: red;
-  }
-  
-  .edit {
-    color: blue;
-  }
-  
-  .view {
-    color: green;
-  }
-  
-  input[type="text"]:focus, select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-  }
-  </style>
+<script setup lang="ts">
+import { ref } from 'vue';
+import CustomTable from '../../../../assets/components/CustomTable.vue';
+import { useContract } from '../../../../composables/projectManager/useContracts';
+import { useI18n } from 'vue-i18n';
+import { addContract, deleteContract, updateContract } from '../../../../services/projectManager/contract';
+import InputText from 'primevue/inputtext';
+import FloatLabel from 'primevue/floatlabel';
+const { t } = useI18n()
+
+const columns = [
+  {
+    field: 'title_ct',
+    header: t('contractList.title')
+  },
+  {
+    field: 'manager_name',
+    header: 'Manager'
+  },
+  {
+    field: 'client_name',
+    header: 'Cliente'
+  },
+  {
+    field: 'start_ct',
+    header: 'Inicio Contrato'
+  },
+  {
+    field: 'end_ct',
+    header: 'Fin Contrato'
+  },
+  {
+    field: 'resolution_ct',
+    header: 'Resolución Contrato'
+  },
+  {
+    field: 'work_area_ct',
+    header: 'Area del Contrato'
+  },
+  {
+    field: 'is_active',
+    header: 'Activo'
+  },
+
+]
+//
+
+const model = ref({
+    title_ct: "",
+    manager_name: "",
+    client_name: "",
+    manager_ct: {},
+    fk_id_client: {},
+    start_ct: "",
+    end_ct: "",
+    resolution_ct: "",
+    description_ct: "",
+    work_area_ct: "",
+    profit_margin: "",
+    currency_ct: "",
+    is_active: true
+})
+
+const queryOptions = {
+  queryFunction: useContract,
+  addFunction:addContract,
+  updateFunction: updateContract,
+  deleteFunction: deleteContract,
+  model: model
+}
+
+
+</script>
+
+
+<style scoped>
+.table-container {
+  margin-bottom: 2rem;
+  width: 80%;
+  margin: 0 auto;
+  /* Centramos el contenedor de la tabla */
+}
+
+.filters-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.filter-input,
+.filter-select,
+.boton {
+  flex-grow: 1;
+  /* Hace que los inputs crezcan para ocupar el espacio disponible */
+  margin-right: 0.5rem;
+  /* Espacio entre los inputs */
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.boton {
+  background-color: #007bff;
+  color: white;
+}
+
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 6px rgba(0, 0, 0.1);
+}
+
+.styled-table th,
+.styled-table td {
+  text-align: left;
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.styled-table tr:nth-child(even) {
+  background-color: rgb(215, 225, 243);
+}
+
+.styled-table th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.action-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+.delete {
+  color: red;
+}
+
+.edit {
+  color: blue;
+}
+
+.view {
+  color: green;
+}
+
+input[type="text"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+</style>

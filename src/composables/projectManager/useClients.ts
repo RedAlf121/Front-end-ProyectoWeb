@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/vue-query"
-import { getClients } from "../services/client"
+import { getClients } from "../../services/projectManager/client"
 
 export const useClients = () => {
   const {

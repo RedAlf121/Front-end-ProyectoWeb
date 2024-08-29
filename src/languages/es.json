@@ -250,5 +250,12 @@
         "contract": "Contractos",
         "clients": "Clientes",
         "deadlines": "Plazos"
+    },
+    "header": {
+        "accountSettings": "Account Settings",
+        "signOut": "Sign Out",
+        "language": "Language",
+        "spanish": "Spanish",
+        "english": "English"
     }
 }

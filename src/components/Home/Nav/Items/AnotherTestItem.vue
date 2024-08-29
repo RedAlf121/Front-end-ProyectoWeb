@@ -4,7 +4,7 @@
 </script>
 <template>
     <NavItem :nextComponent="Nav">
-        <i class="icon ion-ios-home-outline"></i>
+        <i class="icon ion-android-contacts"></i>
 		<span>{{$t('message.test')}}</span>
     </NavItem>
 </template>

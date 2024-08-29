@@ -5,7 +5,7 @@
 
 <template>
     <NavItem :nextComponent="tablaTrabajadores">
-        <i class="icon ion-ios-home-outline"></i>
+        <i class="icon ion-android-people"></i>
 		<span>{{$t('rrhh.workers')}}</span>
     </NavItem>
 

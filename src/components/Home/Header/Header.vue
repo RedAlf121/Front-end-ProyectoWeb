@@ -6,11 +6,11 @@ import i18n from '../../../languages';
 const username = ref(userStoreInstance.userName);
 
 function spanish(){
-    i18n.global.locale='es';
+    i18n.global.locale.value='es';
 }
 
 function english(){
-    i18n.global.locale='en';
+    i18n.global.locale.value='en';
 }
 </script>
 
@@ -29,9 +29,8 @@ function english(){
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <nav class="nav">
-                            <a href="#" class="nav-link"><i class="icon ion-ios-gear"></i> Account
-                                Settings</a>
-                            <router-link to="/" class="nav-link"><i class="icon ion-forward"></i> Sign Out</router-link>
+                            <a href="#" class="nav-link"><i class="icon ion-ios-gear"></i> {{$t('header.accountSettings')}}</a>
+                            <router-link to="/" class="nav-link"><i class="icon ion-forward"></i> {{$t('header.signOut')}}</router-link>
                         </nav>
                     </div><!-- dropdown-menu -->
 
@@ -40,13 +39,13 @@ function english(){
                 <!-- Nuevo dropdown para seleccionar el idioma -->
                 <div class="dropdown dropdown-languages ml-3">
                     <a href="#" class="nav-link" data-toggle="dropdown">
-                        <i class="fa fa-language"></i> Language
+                        <i class="fa fa-language"></i> {{$t('header.language')}}
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <nav class="nav">
-                            <a href="#" @click="spanish()" class="nav-link"><i class="icon ion-earth"></i> Español</a>
-                            <a href="#" @click="english()" class="nav-link"><i class="icon ion-earth"></i> English</a>
+                            <a href="#" class="nav-link"><i class="icon ion-earth"></i> {{$t('header.spanish')}}</a>
+                            <a href="#" class="nav-link"><i class="icon ion-earth"></i> {{$t('header.english')}}</a>
                         </nav>
                     </div><!-- dropdown-menu -->
                 </div><!-- dropdown-languages -->

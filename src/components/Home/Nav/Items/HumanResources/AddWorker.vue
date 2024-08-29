@@ -6,7 +6,7 @@
 </script>
 <template>
     <NavItem :nextComponent="Trabajador">
-        <i class="icon ion-ios-home-outline"></i>
+        <i class="icon ion-person-add"></i>
 		<span>{{$t('rrhh.insertWorker')}}</span>
     </NavItem>
 </template> 
